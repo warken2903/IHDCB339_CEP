@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6840 64-bit) (preloaded format=pdflatex 2018.11.2)  25 NOV 2018 15:52
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6840 64-bit) (preloaded format=pdflatex 2018.11.2)  25 NOV 2018 17:06
 entering extended mode
 **./CEP.tex
 (CEP.tex
@@ -86,6 +86,9 @@ sty")
 y"
 Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
 \KV@toks@=\toks17
+) ("C:\Users\kenny\AppData\Local\Programs\MiKTeX 2.9\tex\latex\url\url.sty"
+\Urlmuskip=\muskip10
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
 ("C:\Users\kenny\AppData\Local\Programs\MiKTeX 2.9\tex\latex\psnfss\mathpazo.st
 y"
@@ -118,26 +121,26 @@ File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
 ) (CEP.aux)
 \openout1 = `CEP.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Try loading font information for T1+ppl on input line 15.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Try loading font information for T1+ppl on input line 16.
 
 ("C:\Users\kenny\AppData\Local\Programs\MiKTeX 2.9\tex\latex\psnfss\t1ppl.fd"
 File: t1ppl.fd 2001/06/04 font definitions for T1/ppl.
 )
-LaTeX Info: Redefining \degres on input line 15.
-LaTeX Info: Redefining \dots on input line 15.
-LaTeX Info: Redefining \up on input line 15.
+LaTeX Info: Redefining \degres on input line 16.
+LaTeX Info: Redefining \dots on input line 16.
+LaTeX Info: Redefining \up on input line 16.
 \big@size=\dimen114
 
 ("C:\Users\kenny\AppData\Local\Programs\MiKTeX 2.9\tex\context\base\supp-pdf.mk
@@ -219,30 +222,30 @@ G,.JBIG2,.JB2,.eps]
 (grfext)             \AppendGraphicsExtensions on input line 456.
 )
 LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <24.88> not available
-(Font)              Font shape `T1/ppl/b/n' tried instead on input line 42.
-LaTeX Font Info:    Try loading font information for OT1+ppl on input line 57.
+(Font)              Font shape `T1/ppl/b/n' tried instead on input line 43.
+LaTeX Font Info:    Try loading font information for OT1+ppl on input line 58.
 
 ("C:\Users\kenny\AppData\Local\Programs\MiKTeX 2.9\tex\latex\psnfss\ot1ppl.fd"
 File: ot1ppl.fd 2001/06/04 font definitions for OT1/ppl.
 )
-LaTeX Font Info:    Try loading font information for OML+zplm on input line 57.
+LaTeX Font Info:    Try loading font information for OML+zplm on input line 58.
 
 ("C:\Users\kenny\AppData\Local\Programs\MiKTeX 2.9\tex\latex\psnfss\omlzplm.fd"
 File: omlzplm.fd 2002/09/08 Fontinst v1.914 font definitions for OML/zplm.
 )
-LaTeX Font Info:    Try loading font information for OMS+zplm on input line 57.
+LaTeX Font Info:    Try loading font information for OMS+zplm on input line 58.
 
  ("C:\Users\kenny\AppData\Local\Programs\MiKTeX 2.9\tex\latex\psnfss\omszplm.fd
 "
 File: omszplm.fd 2002/09/08 Fontinst v1.914 font definitions for OMS/zplm.
 )
-LaTeX Font Info:    Try loading font information for OMX+zplm on input line 57.
+LaTeX Font Info:    Try loading font information for OMX+zplm on input line 58.
 
 
 ("C:\Users\kenny\AppData\Local\Programs\MiKTeX 2.9\tex\latex\psnfss\omxzplm.fd"
 File: omxzplm.fd 2002/09/08 Fontinst v1.914 font definitions for OMX/zplm.
 )
-LaTeX Font Info:    Try loading font information for OT1+zplm on input line 57.
+LaTeX Font Info:    Try loading font information for OT1+zplm on input line 58.
 
  ("C:\Users\kenny\AppData\Local\Programs\MiKTeX 2.9\tex\latex\psnfss\ot1zplm.fd
 "
@@ -251,68 +254,93 @@ File: ot1zplm.fd 2002/09/08 Fontinst v1.914 font definitions for OT1/zplm.
 <placeholder.png, id=1, 362.35374pt x 401.5pt>
 File: placeholder.png Graphic file (type png)
 <use placeholder.png>
-Package pdftex.def Info: placeholder.png  used on input line 85.
+Package pdftex.def Info: placeholder.png  used on input line 86.
 (pdftex.def)             Requested size: 77.99881pt x 86.42496pt.
  [1
 
 {C:/Users/kenny/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map} <./placehold
 er.png>]
 LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <10.95> not available
-(Font)              Font shape `T1/ppl/b/n' tried instead on input line 96.
+(Font)              Font shape `T1/ppl/b/n' tried instead on input line 97.
 
-Underfull \hbox (badness 10000) in paragraph at lines 98--100
+Underfull \hbox (badness 10000) in paragraph at lines 99--101
 
  []
 
 [1]
 LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <17.28> not available
-(Font)              Font shape `T1/ppl/b/n' tried instead on input line 105.
+(Font)              Font shape `T1/ppl/b/n' tried instead on input line 106.
 
-Underfull \hbox (badness 10000) in paragraph at lines 107--109
+Underfull \hbox (badness 10000) in paragraph at lines 108--110
 
  []
 
 LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <12> not available
-(Font)              Font shape `T1/ppl/b/n' tried instead on input line 110.
+(Font)              Font shape `T1/ppl/b/n' tried instead on input line 111.
 
-Overfull \hbox (4.99698pt too wide) in paragraph at lines 110--111
+Overfull \hbox (4.99698pt too wide) in paragraph at lines 111--112
 []\T1/ppl/b/n/12 Complex Event Pro-ces-sing \T1/ppl/m/n/12 : Se-lon l'ar-ticle 
 "For-ma-li-zing Com-plex Event
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 110--111
+Underfull \hbox (badness 10000) in paragraph at lines 111--112
 
  []
 
 
-Overfull \hbox (17.55992pt too wide) in paragraph at lines 112--113
+Overfull \hbox (17.55992pt too wide) in paragraph at lines 113--114
 []\T1/ppl/b/n/12 Internet des ob-jets (IoT) \T1/ppl/m/n/12 : Se-lon l'In-ter-na
 -tio-nal Te-le-com-mu-ni-ca-tion Union,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 112--113
+Underfull \hbox (badness 10000) in paragraph at lines 113--114
 
  []
 
-[2] (CEP.aux) ) 
+LaTeX Font Info:    Try loading font information for T1+cmtt on input line 118.
+
+("C:\Users\kenny\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\t1cmtt.fd"
+File: t1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+Underfull \hbox (badness 10000) in paragraph at lines 115--120
+
+ []
+
+
+Overfull \hbox (17.9505pt too wide) in paragraph at lines 115--120
+\T1/cmtt/m/n/12 https : / / www . itu . int / ITU-[]T / recommendations / rec .
+ aspx ? rec = 11559 & lang =
+ []
+
+LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <14.4> not available
+(Font)              Font shape `T1/ppl/b/n' tried instead on input line 127.
+[2]
+Overfull \hbox (0.73502pt too wide) in paragraph at lines 137--138
+[]\T1/ppl/m/n/12 Article : $\T1/cmtt/m/it/12 https : / / journals . sagepub . c
+om / doi / pdf / 10 . 1155 / 2014 /
+ []
+
+[3] (CEP.aux) ) 
 Here is how much of TeX's memory you used:
- 3130 strings out of 492970
- 45555 string characters out of 3126594
- 112345 words of memory out of 3000000
- 6946 multiletter control sequences out of 15000+200000
- 34954 words of font info for 59 fonts, out of 3000000 for 9000
+ 3225 strings out of 492970
+ 47180 string characters out of 3126594
+ 114440 words of memory out of 3000000
+ 7031 multiletter control sequences out of 15000+200000
+ 37031 words of font info for 63 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  41i,4n,31p,595b,423s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Users/kenny/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvip
-s/base/8r.enc}<C:/Users/kenny/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw
-/palatino/uplb8a.pfb><C:/Users/kenny/AppData/Local/Programs/MiKTeX 2.9/fonts/ty
-pe1/urw/palatino/uplr8a.pfb><C:/Users/kenny/AppData/Local/Programs/MiKTeX 2.9/f
-onts/type1/urw/palatino/uplri8a.pfb>
-Output written on CEP.pdf (3 pages, 85306 bytes).
+ <C:\Users\kenny\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknapp
+en\ec\dpi600\ecit1200.pk> <C:\Users\kenny\AppData\Local\MiKTeX\2.9\fonts\pk\ljf
+our\jknappen\ec\dpi600\ectt1200.pk>{C:/Users/kenny/AppData/Local/Programs/MiKTe
+X 2.9/fonts/enc/dvips/base/8r.enc}<C:/Users/kenny/AppData/Local/Programs/MiKTeX
+ 2.9/fonts/type1/urw/palatino/uplb8a.pfb><C:/Users/kenny/AppData/Local/Programs
+/MiKTeX 2.9/fonts/type1/urw/palatino/uplr8a.pfb><C:/Users/kenny/AppData/Local/P
+rograms/MiKTeX 2.9/fonts/type1/urw/palatino/uplri8a.pfb>
+Output written on CEP.pdf (4 pages, 111860 bytes).
 PDF statistics:
- 28 PDF objects out of 1000 (max. 8388607)
+ 110 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  6 words of extra memory for PDF output out of 10000 (max. 10000000)
 
