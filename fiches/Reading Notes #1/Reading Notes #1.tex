@@ -3,10 +3,11 @@
 \input{structure.tex}
 
 \usepackage{biblatex}
+\usepackage{graphicx}
 
-\addbibresource{references.bib}
+\bibliography{references}
 
-\title{IHDCB339: Reading Notes \#1}
+\title{IHDCB339: Reading Notes}
 
 \author{Kenny Warszawski\\ \texttt{kenny.warszawski@student.unamur.be}}
 
@@ -18,21 +19,19 @@
 
 \section{Article Reference}
 
-\textbf{S. R. Bhandari and N. W. Bergmann} "An Internet-of-Things System Architecture based on Services and Events" in \textit{IEEE Eighth International Conference on Intelligent Sensors, Sensor Networks and Information Processing}, pp. 339-344, 2013.
+\textbf{Lam, An and Haugen, Øystein} "Complex Event Processing in ThingML", pp. 20-35, 2016.
 
 \section{Overview}
 
-In hac habitasse platea dictumst. Curabitur mattis elit sit amet justo luctus vestibulum. In hac habitasse platea dictumst. Pellentesque lobortis justo enim, a condimentum massa tempor eu. Ut quis nulla a quam pretium eleifend nec eu nisl. Nam cursus porttitor eros, sed luctus ligula convallis quis. Nam convallis, ligula in auctor euismod, ligula mauris fringilla tellus, et egestas mauris odio eget diam. Praesent sodales in ipsum eu dictum.
+The article is a presentation of a cross platform modelling language called \textit{ThingML} which is dedicated to Internet of Things. More precisely, the article focus on an extension of this language for Complex Event Processing (CEP). 
 
-%------------------------------------------------
+%----------------------------------------------------------------------------------------
+%	General Problem
+%----------------------------------------------------------------------------------------
 
 \subsection{General problem}
 
-Maecenas consectetur metus at tellus finibus condimentum. Proin arcu lectus, ultrices non tincidunt et, tincidunt ut quam. Integer luctus posuere est, non maximus ante dignissim quis. Nunc a cursus erat. Curabitur suscipit nibh in tincidunt sagittis. Nam malesuada vestibulum quam id gravida. Proin ut dapibus velit. Vestibulum eget quam quis ipsum semper convallis. Duis consectetur nibh ac diam dignissim, id condimentum enim dictum. Nam aliquet ligula eu magna pellentesque, nec sagittis leo lobortis. Aenean tincidunt dignissim egestas. Morbi efficitur risus ante, id tincidunt odio pulvinar vitae.
-
-\subsection{Objectives}
-
-In malesuada ullamcorper urna, sed dapibus diam sollicitudin non. Donec elit odio, accumsan ac nisl a, tempor imperdiet eros. Donec porta tortor eu risus consequat, a pharetra tortor tristique. Morbi sit amet laoreet erat. Morbi et luctus diam, quis porta ipsum. Quisque libero dolor, suscipit id facilisis eget, sodales volutpat dolor. Nullam vulputate interdum aliquam. Mauris id convallis erat, ut vehicula neque. Sed auctor nibh et elit fringilla, nec ultricies dui sollicitudin. Vestibulum vestibulum luctus metus venenatis facilisis. Suspendisse iaculis augue at vehicula ornare. Sed vel eros ut velit fermentum porttitor sed sed massa. Fusce venenatis, metus a rutrum sagittis, enim ex maximus velit, id semper nisi velit eu purus.
+Nowadays, Cyber Physical Systems (CPS) are increasingly present and need to have extremely fast responses. CEP is an answer to this constraint. Indeed, it allows the analysis and extraction of informations from an event sent from a transmitter and combine it with others in order to obtain more complex information on a system. ThingML helps the implementation of such complex system by adding an abstraction on the programming language used for deployment. That way, a model described in ThingML has the same behaviour even if it is deployed in Java or C/C++. This article treats the capabilities of ThingML with CEP extension to integrate a CEP system and deal with CPS constraints.
 
 %----------------------------------------------------------------------------------------
 %	CONCEPTS
@@ -41,7 +40,15 @@ In malesuada ullamcorper urna, sed dapibus diam sollicitudin non. Donec elit odi
 \section{Concepts used in the article}
 
 \begin{itemize}
-    \item \textbf{Term-1:}
+    \item \textbf{Complex Event Processing (CEP):} Complex Event Processing (CEP) is a set of methods and techniques for tracking
+and analyzing real-time streams of information and detecting patterns or correlations
+of unrelated data (complex events) that are of interest to a particular
+business \cite{1}
+	\item \textbf{Internet of Things (IoT):} The Internet of Things(IoT) is a novel paradigm that is rapidly gaining ground in the scenario of modern wireless telecommunications. The basic idea of this concept is the pervasive presence around us of a variety of things or objects – such as Radio-Frequency IDentification (RFID) tags, sensors, actuators, mobile phones, etc. – which,through unique addressing schemes, are able to interact with each other and cooperate with their neighbors to reach common goals \cite{2}
+	\item \textbf{Event Pattern Language (EPL):} Event Pattern Language (EPL) is the language
+to define atomic or complex event and specify the process of filtering (determine event of interest) and extracting events properties for constructing high-level events \cite{4}
+	\item \textbf{Cyber Physical Systems (CPS):} Cyber-Physical Systems (CPS) are integrations of computation and physical processes. Embedded computers and networks monitor and control the physical processes, usually with feedback loops where physical processes affect computations and vice versa \cite{5}
+	\item \textbf{RFID:} Radio Frequency Identification (RFID) is a wireless technology capable of automatic and unambiguous identification without line of sight by extracting a unique identifier from microelectronic tags attached to objects. \cite{3}
 \end{itemize}
 
 %----------------------------------------------------------------------------------------
@@ -50,7 +57,15 @@ In malesuada ullamcorper urna, sed dapibus diam sollicitudin non. Donec elit odi
 
 \subsection{Thematic}
 
-In malesuada ullamcorper urna, sed dapibus diam sollicitudin non. Donec elit odio, accumsan ac nisl a, tempor imperdiet eros. Donec porta tortor eu risus consequat, a pharetra tortor tristique. Morbi sit amet laoreet erat. Morbi et luctus diam, quis porta ipsum. Quisque libero dolor, suscipit id facilisis eget, sodales volutpat dolor. Nullam vulputate interdum aliquam. Mauris id convallis erat, ut vehicula neque. Sed auctor nibh et elit fringilla, nec ultricies dui sollicitudin. Vestibulum vestibulum luctus metus venenatis facilisis. Suspendisse iaculis augue at vehicula ornare. Sed vel eros ut velit fermentum porttitor sed sed massa. Fusce venenatis, metus a rutrum sagittis, enim ex maximus velit, id semper nisi velit eu purus.
+ThingML is a domain specific language and compiler for the internet of things. This DSL is used to describe software components and communication protocols without being coupled to a specific programming language. To this end, this technology provides the possibility for developers to deploy the same implementation onto different platforms like Java, Javascript, C/C++ and Arduino by a code generation.
+
+\begin{figure}[h!]
+	\includegraphics[width=\linewidth]{dsl.png}
+	\caption{ThingML overview}
+  	\label{fig:thingml} 
+\end{figure}
+
+
 
 %----------------------------------------------------------------------------------------
 

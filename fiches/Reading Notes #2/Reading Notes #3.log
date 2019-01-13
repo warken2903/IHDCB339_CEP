@@ -1,7 +1,7 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6840 64-bit) (preloaded format=pdflatex 2018.11.2)  23 DEC 2018 14:58
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6840 64-bit) (preloaded format=pdflatex 2018.11.2)  13 JAN 2019 13:48
 entering extended mode
-**"./Reading Notes #1.tex"
-("Reading Notes #1.tex"
+**"./Reading Notes #3.tex"
+("Reading Notes #3.tex"
 LaTeX2e <2018-04-01> patch level 5
 ("C:\Users\kenny\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\article.cls"
 Document Class: article 2014/09/29 v1.4h Standard LaTeX document class
@@ -1692,9 +1692,8 @@ TLF.
 )
 LaTeX Font Info:    Font shape `T1/XCharter-TLF/m/n' will be
 (Font)              scaled to size 10.0pt on input line 15.
-
-No file "Reading Notes #1".aux.
-\openout1 = `"Reading Notes #1.aux"'.
+ ("Reading Notes #3.aux")
+\openout1 = `"Reading Notes #3.aux"'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 15.
 LaTeX Font Info:    ... okay on input line 15.
@@ -1710,6 +1709,7 @@ LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 15.
 LaTeX Font Info:    ... okay on input line 15.
 LaTeX Font Info:    Checking defaults for T2A/cmr/m/n on input line 15.
 LaTeX Font Info:    Try loading font information for T2A+cmr on input line 15.
+
 ("C:\Users\kenny\AppData\Local\Programs\MiKTeX 2.9\tex\latex\cyrillic\t2acmr.fd
 "
 File: t2acmr.fd 2001/08/11 v1.0a Computer Modern Cyrillic font definitions
@@ -1762,12 +1762,12 @@ G,.JBIG2,.JB2,.eps]
 Package biblatex Info: Input encoding 'utf8' detected.
 Package biblatex Info: Automatic encoding selection.
 (biblatex)             Assuming data encoding 'utf8'.
-\openout4 = `"Reading Notes #1.bcf"'.
+\openout4 = `"Reading Notes #3.bcf"'.
 
 Package biblatex Info: Trying to load bibliographic data...
-Package biblatex Info: ... file '"Reading Notes #1".bbl' not found.
+Package biblatex Info: ... file '"Reading Notes #3".bbl' not found.
 
-No file "Reading Notes #1".bbl.
+No file "Reading Notes #3".bbl.
 Package biblatex Info: Reference section=0 on input line 15.
 Package biblatex Info: Reference segment=0 on input line 15.
 \c@lstlisting=\count431
@@ -1852,23 +1852,15 @@ LaTeX Font Info:    Font shape `TS1/XCharter-TLF/m/n' will be
 
 LaTeX Warning: Empty bibliography on input line 62.
 
-[2] ("Reading Notes #1.aux")
-
-LaTeX Warning: There were undefined references.
-
-
-Package biblatex Warning: Please (re)run Biber on the file:
-(biblatex)                "Reading Notes #1"
-(biblatex)                and rerun LaTeX afterwards.
-
-Package logreq Info: Writing requests to '"Reading Notes #1".run.xml'.
-\openout1 = `"Reading Notes #1.run.xml"'.
+[2] ("Reading Notes #3.aux")
+Package logreq Info: Writing requests to '"Reading Notes #3".run.xml'.
+\openout1 = `"Reading Notes #3.run.xml"'.
 
  ) 
 Here is how much of TeX's memory you used:
- 33509 strings out of 492970
- 638638 string characters out of 3126594
- 1021220 words of memory out of 3000000
+ 33511 strings out of 492970
+ 638789 string characters out of 3126594
+ 1021221 words of memory out of 3000000
  36912 multiletter control sequences out of 15000+200000
  589849 words of font info for 65 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -1882,7 +1874,7 @@ rams/MiKTeX 2.9/fonts/type1/public/xcharter/XCharter-Bold.pfb><C:/Users/kenny/A
 ppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/xcharter/XCharter-Italic.pf
 b><C:/Users/kenny/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/xcharter
 /XCharter-Roman.pfb>
-Output written on "Reading Notes #1.pdf" (2 pages, 102957 bytes).
+Output written on "Reading Notes #3.pdf" (2 pages, 102027 bytes).
 PDF statistics:
  50 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
