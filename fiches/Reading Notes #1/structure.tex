@@ -34,6 +34,20 @@
 	basicstyle=\ttfamily, % Typeset listings in monospace font
 }
 
+\usepackage{graphicx}
+
+\usepackage{hyperref}
+
+\makeatletter
+\newcommand{\addloflink}[1]{% \addloflink{<URL>}
+  \addtocontents{lof}{\begingroup\def\protect\@dotsep{10000}% Remove dots in LoF for this entry
+    \protect\contentsline{figlink}{\protect\numberline{}\url{#1}}{}{}%
+    \endgroup}% Restore dots in LoF for future entries
+}
+\newcommand{\l@figlink}{\@dottedtocline{1}{1.5em}{2.3em}}
+\makeatother
+
+
 %----------------------------------------------------------------------------------------
 %	DOCUMENT MARGINS
 %----------------------------------------------------------------------------------------

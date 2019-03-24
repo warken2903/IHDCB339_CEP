@@ -1,0 +1,47 @@
+================
+== Contexte : ==
+================
+
+- Explication generale (avec schémas) du sujet d'Internet of Things + domaines d'applications
+- Aborder le sujet du traitement de données importants (beaucoup de devices génèrent énormément d'informations)
+- Pourquoi gérer la complexité dans l'IoT ?
+
+=================
+== Complexité: ==
+=================
+
+- Comment gérer cette complexité ? (Trouver des articles qui parlent de techniques)
+
+==========================
+== Complexité interne : ==
+==========================
+
+- Comment gérer la complexité dans le device ? (capteur d'entrée vers la sortie) 
+ ex: capteur de ?
+
+==========================
+== Complexité externe : ==
+==========================
+
+- Comment gérer le traitement des informations ressortants des devices ?
+
+    -> Traitement centralisé (ex: Tahoma)
+    -> Traitement point à point inter-devices (ex: Télécommande du volet)
+
+===================
+== Comparaison : ==
+===================
+
+- Comparaison entres les différentes techniques de traitement:
+
+    -> interne - CEP
+    -> externe - CEP
+
+====================
+== Méthodologie : ==
+====================
+
+- Bibliothèques
+- Critères de recherches
+- Comment j'ai trié les articles ?
+- Donner des articles illustrant la technique utilisée
