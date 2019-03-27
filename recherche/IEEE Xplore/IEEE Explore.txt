@@ -1,10 +1,11 @@
 ﻿IEEE Xplore:
 
-Recherche 1 :
+search-1 :
 
 -> Complex Event Processing AND Internet of Things
--> filter : 2015 - 2019 (Puisque c'est un sujet récent, je me base sur des articles plutôt récents)
+-> Filters Applied: 2015 - 2019 (Puisque c'est un sujet récent, je me base sur des articles plutôt récents)
 
-Recherche 2 :
+search-2 :
 
-
+-> ((((Internet of Things) AND Data Processing) NOT Complex Event Processing) NOT Survey) 
+-> Filters Applied: Journals & Magazines Books  2015 - 2019 
