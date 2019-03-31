@@ -2,10 +2,21 @@
 
 search-1 :
 
--> Complex Event Processing AND Internet of Things
--> Filters Applied: 2015 - 2019 (Puisque c'est un sujet récent, je me base sur des articles plutôt récents)
+-> Keywords : Complex Event Processing AND Internet of Things
+-> Filters Applied: 
+	- 2014 - 2019 (Puisque c'est un sujet récent, je me base sur des articles plutôt récents)
 
 search-2 :
 
--> ((((Internet of Things) AND Data Processing) NOT Complex Event Processing) NOT Survey) 
--> Filters Applied: Journals & Magazines Books  2015 - 2019 
+-> ((((Internet of Things) AND Data Processing) NOT Complex Event Processing)) 
+-> Filters Applied: 
+	- Journals & Magazines Books 
+	- Most cited
+	- 2015 - 2019 
+
+[Idée pour la 3 eme recherche]
+
+Etant donné que lorsque je recherche Internet of Things + CEP, je tombe sur de l'IoT orienté
+Big Data. Je devrais rechercher les méthodologies pour la domotique ou dans le cas de données
+moins abondantes. Ainsi, je pourrai comparer plusieurs méthodes et le use case auquel celles-ci
+répondent.
