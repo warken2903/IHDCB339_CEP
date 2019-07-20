@@ -8,6 +8,8 @@
 
 \usepackage{amsmath,amsfonts,stmaryrd,amssymb} % Math packages
 
+\usepackage{xcolor}
+
 \usepackage{enumerate} % Custom item numbers for enumerations
 
 \usepackage[ruled]{algorithm2e} % Algorithms
@@ -125,6 +127,7 @@ How is it possible to handle such an important data traffic efficiently ?
 Indeed, if an entire city has a huge amount of connected objects, the data flow to be processed is massive.
 Therefore efficient data processing mechanisms need to be put in place to handle such flows.
 
+\textcolor{red}{Ajouter du texte, pas assez long}
 %--------------
 % \begin{itemize}
 %    \item \textbf{Item 1:} My item \cite{1}
@@ -136,11 +139,23 @@ Therefore efficient data processing mechanisms need to be put in place to handle
 %----------------------------------------------------------------------------------------
 
 
-\section{Data Processing levels}
+\section{IoT architecture}
 
-Ici il faudrait que je parle des differents endroits où les données vont êtres traitées.
+L'architecture d'une solution présentant des objets connectés peut être réalisée avec des technologies diverses mais de manière abstraites, celle-ci peut être vue comme suit: 
 
-\subsection{Physical Objects}
+\includegraphics[width=0.7\textwidth]{assets/Abstract_IoT_Architecture.PNG}
+
+
+\textcolor{red}{Expliquer chaque couche}
+By the way, the Application Layer can be directly or indirectly another physical object on premise on an application in the cloud for example. This architecture can be simplified by separating those 5 layers by only 3:
+
+\includegraphics[width=0.7\textwidth]{assets/Basic_IOT_Architecture}
+
+Dans cet article, nous allons nous focaliser sur la partie Physical Object and Sensors et Computation and Processing System car c'est précisément à cette couche que le traitement de données va être le plus important. Evidemment, la couche de communication doit être suffisamment robuste afin de faire transiter les données de manière efficaces mais ceci ne va pas nous interresser dans cette thèse.
+
+\subsection{Physical Objects and Sensors}
+
+
 
 \subsection{Computation and Processing systems}
 
@@ -150,7 +165,6 @@ Ici il faudrait que je parle des differents endroits où les données vont être
 %----------------------------------------------------------------------------------------
 
 \section{Data Treatment Complexity}
-
 
 (Penser à parler au fog et cloud computing qui a beaucoup paru dans les articles)
 Attention ne pas parler uniquement du CEP mais également d'autres techniques.
