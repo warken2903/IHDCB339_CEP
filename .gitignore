@@ -1,5 +1,12 @@
-CEP.aux
-CEP.log
-CEP.synctex.gz
+*.aux
+*.log
+*.bbl
+*.bcf
+*.blg
+*.lof
+*.gz
+*.log
+*.out
+*.xml
 texput.log
 ./idea

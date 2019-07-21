@@ -8,8 +8,6 @@
 
 \usepackage{amsmath,amsfonts,stmaryrd,amssymb} % Math packages
 
-\usepackage{xcolor}
-
 \usepackage{enumerate} % Custom item numbers for enumerations
 
 \usepackage[ruled]{algorithm2e} % Algorithms
@@ -53,7 +51,7 @@
 	
 	\textsc{\LARGE University of Namur}\\[1.5cm] % Main heading such as the name of your university/college
 	
-	\textsc{\Large State of the art}\\[0.5cm] % Major heading such as course name
+	\textsc{\Large Initiation à la démarche scientifique}\\[0.5cm] % Major heading such as course name
 	
 	\textsc{\large IHDCB339}\\[0.5cm] % Minor heading such as course title
 	
@@ -63,7 +61,7 @@
 	
 	\HRule\\[0.4cm]
 	
-	{\huge\bfseries Complex Event Processing for Internet of Things}\\[0.4cm] % Title of your document
+	{\huge\bfseries State of the Art: Complex Event Processing (CEP) for Internet of Things (IoT)}\\[0.4cm] % Title of your document
 	
 	\HRule\\[1.5cm]
 	
@@ -84,6 +82,8 @@
 			\large
 			\textit{Supervisor}\\
 			Moussa \textsc{Amrani} % Supervisor's name
+			\newline
+			Pierre-Yves \textsc{Schobbens} % Supervisor's name
 		\end{flushright}
 	\end{minipage}
 	
@@ -128,6 +128,7 @@ Indeed, if an entire city has a huge amount of connected objects, the data flow 
 Therefore efficient data processing mechanisms need to be put in place to handle such flows.
 
 \textcolor{red}{Ajouter du texte, pas assez long}
+\newpage
 %--------------
 % \begin{itemize}
 %    \item \textbf{Item 1:} My item \cite{1}
@@ -139,63 +140,103 @@ Therefore efficient data processing mechanisms need to be put in place to handle
 %----------------------------------------------------------------------------------------
 
 
-\section{IoT architecture}
+\section{Context}
 
-L'architecture d'une solution présentant des objets connectés peut être réalisée avec des technologies diverses mais de manière abstraites, celle-ci peut être vue comme suit: 
+\subsection{IoT architecture}
 
-\includegraphics[width=0.7\textwidth]{assets/Abstract_IoT_Architecture.PNG}
+The architecture of an IoT solution can be implemented with various technologies and in very different infrastructures. However, a generic high level architecture is common to all IoT projects:
+\begin{figure}[h]
+	\includegraphics[width=0.8\textwidth]{assets/Abstract_IoT_Architecture.png} 
+	\caption{Generic Architecture}
+	\label{fig:genericArchitecture}
+\end{figure}
 
+\textbf{Perception Layer:} The perception layer or device layer is the layer where physical objects will be able to capture data via sensors. These sensors are able to collect real world data. These data can be or not be processed upstream to add meta-data by the connected object itself and will be forwarded to the Network Layer.
 
-\textcolor{red}{Expliquer chaque couche}
-By the way, the Application Layer can be directly or indirectly another physical object on premise on an application in the cloud for example. This architecture can be simplified by separating those 5 layers by only 3:
+\textbf{Network Layer:} The Network Layer or Transmission Layer. This layer transfers the informations from to Perception Layer to the Middleware Layer. This transfer can be accomplished by different communication technologies like Wifi, 3g, Bluetooth, etc.
 
-\includegraphics[width=0.7\textwidth]{assets/Basic_IOT_Architecture}
+\textbf{Middleware Layer:} The Middleware Layer is the common layer for all physical objects of an IoT architecture. The middleware is responsible to take automatic decisions based on informations coming for the devices and store the results in a database. 
 
-Dans cet article, nous allons nous focaliser sur la partie Physical Object and Sensors et Computation and Processing System car c'est précisément à cette couche que le traitement de données va être le plus important. Evidemment, la couche de communication doit être suffisamment robuste afin de faire transiter les données de manière efficaces mais ceci ne va pas nous interresser dans cette thèse.
+\textbf{Application and Business Layer}: The Application Layer is where smart applications are running to produce complex processes. These applications will consume data from connected objects previously processed by the middleware to act effectively on a specific situation. These application can transmit actions to execute on a particular type of service. The Business Layer is important for the global management of the system. This one is rather a layer of global monitoring which produces graphs and statistics at the business level.
 
-\subsection{Physical Objects and Sensors}
+\subsection{Data processing}
 
+The previous architecture can be simplified to highlight the layer of architecture on which this state of the art will focus.
 
+\begin{figure}[h]
+	\includegraphics[width=0.8\textwidth]{assets/Basic_IOT_Architecture.png} 
+	\caption{Simple IoT Architecture}
+	\label{fig:simpleArchitecture}
+\end{figure}
 
-\subsection{Computation and Processing systems}
-
-
-%----------------------------------------------------------------------------------------
-%	Data Treatment Complexity
-%----------------------------------------------------------------------------------------
-
-\section{Data Treatment Complexity}
-
-(Penser à parler au fog et cloud computing qui a beaucoup paru dans les articles)
-Attention ne pas parler uniquement du CEP mais également d'autres techniques.
-
-\subsection{Technique A}
-
-\subsection{Technique B}
-
-\subsection{Complex Event Processing}
+This state of the art is focusing on the "Computation and Processing System" layer because at that stage, the data processing is the most critical and the data flow is the highest. Obviously, the Communication Layer must be robust enough to transmit the data efficiently but this topic will not be tackled in this article.
 
 %----------------------------------------------------------------------------------------
+%	Complex Event Processing
+%----------------------------------------------------------------------------------------
 
+\section{Complex Event Processing}
 
-\section{Chap 2}
+\subsection{Definition}
 
-\subsection{Sub-Section}
+Complex Event Processing (CEP) is a set of methods and techniques for tracking
+and analyzing real-time streams of informations and detecting patterns or correlations
+of unrelated data (complex events) that are of interest to a particular
+business. \cite{1} The complex event processing is the engine of real-time applications that needs to have real-time informations from an environment to respond as fast as possible. A standard Request/Reply with synchronous processes cannot correlate different type of events and respond in a timely manner. Complex Event Processing mechanisms are often used in Event Driven architectures. This architecture fits with the Internet of Things needs. This kind of architecture is driven by events sent by connected objects. Then, the services at the application layer are consuming those events.
 
+\subsection{How it works}
 
-\section{Chap 3}
+The CEP engine is consuming the events sent by the physical objects on the Communication Layer. This engine can define a bunch of rules where each event received will be evaluated. A rule represents a complex condition that can be based on multiple events and on a time window. For exemple, if all connected cameras in a house are sending that there aren't any move in the house in a time window of 60 seconds, an event saying that nobody is in the house will be sent. Then, some specific actions can be taken by connected devices in the house. 
 
-\subsection{Sub-section 1}
+\begin{figure}[h]
+	\includegraphics[scale=0.6]{assets/cep-pattern-decision-reaction.png} 
+	\caption{CEP Pattern Decision Reaction}
+	\label{fig:cep-pattern-decision-reaction}
+\end{figure}
 
-\subsection{Sub-section 2}
+The technologies implementing CEP concepts are querying Time Series Databases where each event received are stored. Thoses databases are optimised for queries based on a time window. In a lot of CEP framework like Apache Flink, those CEP rules are describe like an SQL Query and uses Event Patterns. 
 
-\subsubsection{Sub-sub-section 1}
+\subsection{Event Patterns}
 
-\subsubsection{Sub-sub-section 2}
+\textbf{Selection:} 
+\newline
+\textbf{Projection:} 
+\newline
+\textbf{Window:} 
+\newline
+\textbf{Conjunction:} 
+\newline
+\textbf{Disjunction:} 
+\newline
+\textbf{Sequence:} 
+\newline
+\textbf{Repetition:}
+\newline
+\textbf{Sequence:}
+\newline
+\textbf{Aggregation:}
+\newline
+\textbf{Negation:}
 
-\section{Methodology}
+\subsection{Usage in IoT systems}
 
+\textcolor{red}{TODO}
 
+%----------------------------------------------------------------------------------------
+
+\section{Edge Computing}
+
+%----------------------------------------------------------------------------------------
+
+\section{Fog Computing}
+
+%----------------------------------------------------------------------------------------
+
+\section{Cloud Computing}
+
+%----------------------------------------------------------------------------------------
+
+\section{Research Methodology}
 
 
 %----------------------------------------------------------------------------------------

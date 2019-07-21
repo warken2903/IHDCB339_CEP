@@ -1,0 +1,4 @@
+Images:
+
+cep-pattern-decision-reaction.png => https://www.tibco.com/blog/2009/12/18/cep-more-than-event-patterns/
+Schéma simple.png => Towards a lightweight CEP engine for embedded Systems.pdf 
