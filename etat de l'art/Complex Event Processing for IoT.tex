@@ -159,7 +159,7 @@ The architecture of an IoT solution can be implemented with various technologies
 
 \textbf{Application and Business Layer}: The Application Layer is where smart applications are running to produce complex processes. These applications will consume data from connected objects previously processed by the middleware to act effectively on a specific situation. These application can transmit actions to execute on a particular type of service. The Business Layer is important for the global management of the system. This one is rather a layer of global monitoring which produces graphs and statistics at the business level.
 
-\subsection{Data processing}
+\subsection{Data Flow}
 
 The previous architecture can be simplified to highlight the layer of architecture on which this state of the art will focus.
 
@@ -184,7 +184,7 @@ and analyzing real-time streams of informations and detecting patterns or correl
 of unrelated data (complex events) that are of interest to a particular
 business. \cite{1} The complex event processing is the engine of real-time applications that needs to have real-time informations from an environment to respond as fast as possible. A standard Request/Reply with synchronous processes cannot correlate different type of events and respond in a timely manner. Complex Event Processing mechanisms are often used in Event Driven architectures. This architecture fits with the Internet of Things needs. This kind of architecture is driven by events sent by connected objects. Then, the services at the application layer are consuming those events.
 
-\subsection{How it works}
+\subsection{CEP Engine}
 
 The CEP engine is consuming the events sent by the physical objects on the Communication Layer. This engine can define a bunch of rules where each event received will be evaluated. A rule represents a complex condition that can be based on multiple events and on a time window. For exemple, if all connected cameras in a house are sending that there aren't any move in the house in a time window of 60 seconds, an event saying that nobody is in the house will be sent. Then, some specific actions can be taken by connected devices in the house. 
 
@@ -194,29 +194,40 @@ The CEP engine is consuming the events sent by the physical objects on the Commu
 	\label{fig:cep-pattern-decision-reaction}
 \end{figure}
 
-The technologies implementing CEP concepts are querying Time Series Databases where each event received are stored. Thoses databases are optimised for queries based on a time window. In a lot of CEP framework like Apache Flink, those CEP rules are describe like an SQL Query and uses Event Patterns. 
+The technologies implementing CEP concepts are querying Time Series Databases where each event received are stored. Thoses databases are optimised for queries based on a time window. In a lot of CEP framework like Apache Flink, those CEP rules are describe like an SQL Query and uses Event Pattern Languages. 
 
-\subsection{Event Patterns}
+\subsection{Event Pattern Languages}
 
-\textbf{Selection:} 
+An Event Pattern Language (EPL) is a language used by CEP engines in order to describe the relations between events that match a specific pattern. The syntax of EPL's are quite similar to SQL queries. The Example 1 is retrieving dates where the temperature was bigger than 30 degrees Celsius.
 \newline
-\textbf{Projection:} 
 \newline
-\textbf{Window:} 
+\underline{\textbf{Example 1:}}
+\begin{verbatim}
+	SELECT Thermometer.date
+	FROM DataSource
+	WHERE temperature > 30
+\end{verbatim}
+A plenty of primitive operators exists in Event Pattern Languages to describe the rule's behaviour. The following operators are coming from ThingML framework but are available in most of CEP frameworks:
 \newline
-\textbf{Conjunction:} 
 \newline
-\textbf{Disjunction:} 
+\textbf{Selection:} Filters relevant events based on the values of their attributes.\cite{lu} For example, we can select all Air Pressure events between 101300 Pa and 101400 Pa.
 \newline
-\textbf{Sequence:} 
+\textbf{Projection:} Extracts or transforms a subset of attributes of the events.\cite{lu}
 \newline
-\textbf{Repetition:}
+\textbf{Window:} Defines which portions of the input events to be considered for detecting pattern.\cite{lu} For example, a rule can concern the last 30 seconds events.
 \newline
-\textbf{Sequence:}
+\textbf{Conjunction:} Consider the occurrences of two or more events.\cite{lu} This operator is basically a logical 'AND' operator.
 \newline
-\textbf{Aggregation:}
+\textbf{Disjunction:} Consider the occurrences of either one ore more events in a predefined set.\cite{lu} This operator is basically a logical 'OR' operator.
 \newline
-\textbf{Negation:}
+\textbf{Sequence:} Introduces ordering relations among events of a pattern which is satisfied when all the events have been detected in the specified order.\cite{lu}
+\newline
+\textbf{Repetition:} Considers a number of occurrences of a particular event.\cite{lu}
+\newline
+\textbf{Aggregation:} Introduces constraints involving some aggregated attribute values.\cite{lu} For example, the average temperature of all Meteo events is an aggregation.
+\newline
+\textbf{Negation:} Prescribes the absence of certain events.\cite{lu} This operator is basically a logical 'NOT' operator
+
 
 \subsection{Usage in IoT systems}
 
