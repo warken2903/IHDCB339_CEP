@@ -180,13 +180,13 @@ This state of the art is focusing on the "Computation and Processing System" lay
 \subsection{Definition}
 
 Complex Event Processing (CEP) is a set of methods and techniques for tracking
-and analyzing real-time streams of informations and detecting patterns or correlations
+and analysing real-time streams of informations and detecting patterns or correlations
 of unrelated data (complex events) that are of interest to a particular
 business. \cite{1} The complex event processing is the engine of real-time applications that needs to have real-time informations from an environment to respond as fast as possible. A standard Request/Reply with synchronous processes cannot correlate different type of events and respond in a timely manner. Complex Event Processing mechanisms are often used in Event Driven architectures. This architecture fits with the Internet of Things needs. This kind of architecture is driven by events sent by connected objects. Then, the services at the application layer are consuming those events.
 
 \subsection{CEP Engine}
 
-The CEP engine is consuming the events sent by the physical objects on the Communication Layer. This engine can define a bunch of rules where each event received will be evaluated. A rule represents a complex condition that can be based on multiple events and on a time window. For exemple, if all connected cameras in a house are sending that there aren't any move in the house in a time window of 60 seconds, an event saying that nobody is in the house will be sent. Then, some specific actions can be taken by connected devices in the house. 
+The CEP engine is consuming the events sent by the physical objects on the Communication Layer. This engine can define a bunch of rules where each event received will be evaluated. A rule represents a complex condition that can be based on multiple events and on a time window. For example, if all connected cameras in a house are sending that there aren't any move in the house in a time window of 60 seconds, an event saying that nobody is in the house will be sent. Then, some specific actions can be taken by connected devices in the house. 
 
 \begin{figure}[h]
 	\includegraphics[scale=0.6]{assets/cep-pattern-decision-reaction.png} 
@@ -226,24 +226,23 @@ A plenty of primitive operators exists in Event Pattern Languages to describe th
 \newline
 \textbf{Aggregation:} Introduces constraints involving some aggregated attribute values.\cite{lu} For example, the average temperature of all Meteo events is an aggregation.
 \newline
-\textbf{Negation:} Prescribes the absence of certain events.\cite{lu} This operator is basically a logical 'NOT' operator
+\textbf{Negation:} Prescribes the absence of certain events.\cite{lu} This operator is basically a logical 'NOT' operator.
 
+%--------------------------------------------------------------------------------------
 
-\subsection{Usage in IoT systems}
-
-\textcolor{red}{TODO}
-
-%----------------------------------------------------------------------------------------
-
-\section{Edge Computing}
+\section{Low latency architecture}
 
 %----------------------------------------------------------------------------------------
 
-\section{Fog Computing}
+\subsection{Edge Computing}
 
 %----------------------------------------------------------------------------------------
 
-\section{Cloud Computing}
+\subsection{Fog Computing}
+
+%----------------------------------------------------------------------------------------
+
+\subsection{Cloud Computing}
 
 %----------------------------------------------------------------------------------------
 
