@@ -230,19 +230,33 @@ A plenty of primitive operators exists in Event Pattern Languages to describe th
 
 %--------------------------------------------------------------------------------------
 
-\section{Low latency architecture}
+\section{Low Latency architecture}
+
+The main preoccupations of a real-time solution in IoT is to have the lowest latency between all devices. To process all data coming from sensors, CEP engines can help reducing the processing time. The CEP engines can be placed at different level of the IoT architecture. The place where Complex Event Processing is used depends of the business needs. 
 
 %----------------------------------------------------------------------------------------
 
-\subsection{Edge Computing}
+\subsection{Cloud Computing}
+
+The Cloud Computing places the computing complexity at the cloud level. All the data coming from the sensors have to transit by the connected object, sometimes by a middleware and then it can be consumed by a CEP Engine in the cloud. The Cloud Computing is common for near real-time applications where a little bit of latency is not critical.
+
+\begin{figure}[h]
+	\includegraphics[scale=0.5]{assets/Cloud_Computing.png}
+	\caption{Cloud Computing}
+	\label{fig:Cloud-Computing}
+\end{figure}
+
+This solution is optimal for the near real-time cloud monitoring because all events coming from the devices are sent to the cloud. Then a precise metrics history can be retrieved. Obviously all data persisted have a cost. This type of solution is extremely demanding in storage space if all the history is persisted.
 
 %----------------------------------------------------------------------------------------
 
 \subsection{Fog Computing}
 
+The Fog Computing places the computing complexity at the local network level. Typically the complexity is put between the cloud and the IoT sensors. The devices are sending their data to a Middleware and the CEP engine is processing the data locally and send the processed events to a service running in the Cloud or on a local server.
+
 %----------------------------------------------------------------------------------------
 
-\subsection{Cloud Computing}
+\subsection{Edge Computing}
 
 %----------------------------------------------------------------------------------------
 
