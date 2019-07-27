@@ -12,6 +12,8 @@
 
 \usepackage[ruled]{algorithm2e} % Algorithms
 
+\usepackage{float}
+
 \usepackage[framemethod=tikz]{mdframed} % Allows defining custom boxed/framed environments
 
 \usepackage{biblatex}
@@ -61,7 +63,7 @@
 	
 	\HRule\\[0.4cm]
 	
-	{\huge\bfseries State of the Art: Complex Event Processing (CEP) for Internet of Things (IoT)}\\[0.4cm] % Title of your document
+	{\huge\bfseries State of the Art: Complex Event Processing for Internet of Things}\\[0.4cm] % Title of your document
 	
 	\HRule\\[1.5cm]
 	
@@ -142,6 +144,12 @@ Therefore efficient data processing mechanisms need to be put in place to handle
 
 \section{Context}
 
+\subsection{Internet of Things}
+
+The Internet of Things(IoT) is a novel paradigm that is rapidly gaining ground in the scenario of modern wireless telecommunications. The basic idea of this concept is the pervasive presence around us of a variety of things or objects – such as Radio-Frequency IDentification (RFID) tags, sensors, actuators, mobile phones, etc. – which,through unique addressing schemes, are able to interact with each other and cooperate with their neighbors to reach common goals \cite{2}
+
+\textcolor{red}{Expliquer un peu plus "Things", etc Un paragraphe}
+
 \subsection{IoT architecture}
 
 The architecture of an IoT solution can be implemented with various technologies and in very different infrastructures. However, a generic high level architecture is common to all IoT projects:
@@ -187,7 +195,7 @@ business. \cite{1} The complex event processing is the engine of real-time appli
 \subsection{CEP Engine}
 
 The CEP engine is consuming the events sent by the physical objects on the Communication Layer. This engine can define a bunch of rules where each event received will be evaluated. A rule represents a complex condition that can be based on multiple events and on a time window. For example, if all connected cameras in a house are sending that there aren't any move in the house in a time window of 60 seconds, an event saying that nobody is in the house will be sent. Then, some specific actions can be taken by connected devices in the house. 
-
+\newline
 \begin{figure}[h]
 	\includegraphics[scale=0.6]{assets/cep-pattern-decision-reaction.png} 
 	\caption{CEP Pattern Decision Reaction}
@@ -230,7 +238,7 @@ A plenty of primitive operators exists in Event Pattern Languages to describe th
 
 %--------------------------------------------------------------------------------------
 
-\section{Low Latency architecture}
+\section{Computing Levels}
 
 The main preoccupations of a real-time solution in IoT is to have the lowest latency between all devices. To process all data coming from sensors, CEP engines can help reducing the processing time. The CEP engines can be placed at different level of the IoT architecture. The place where Complex Event Processing is used depends of the business needs. 
 
@@ -239,24 +247,41 @@ The main preoccupations of a real-time solution in IoT is to have the lowest lat
 \subsection{Cloud Computing}
 
 The Cloud Computing places the computing complexity at the cloud level. All the data coming from the sensors have to transit by the connected object, sometimes by a middleware and then it can be consumed by a CEP Engine in the cloud. The Cloud Computing is common for near real-time applications where a little bit of latency is not critical.
-
+\newline
 \begin{figure}[h]
-	\includegraphics[scale=0.5]{assets/Cloud_Computing.png}
+	\includegraphics[width=\textwidth,height=160pt]{assets/Cloud_Computing.png}
 	\caption{Cloud Computing}
 	\label{fig:Cloud-Computing}
 \end{figure}
 
 This solution is optimal for the near real-time cloud monitoring because all events coming from the devices are sent to the cloud. Then a precise metrics history can be retrieved. Obviously all data persisted have a cost. This type of solution is extremely demanding in storage space if all the history is persisted.
+\newline
+\newline
+Of course the Cloud Computing can be coupled with other levels of computing and it's often the case. The Cloud Computing can be placed on the top of a multi site IoT solutions where millions of data are coming from thousands of connected objects in the world. Then this solution can reflect a High Level overview of a global IoT system and available all over the world.
 
 %----------------------------------------------------------------------------------------
 
 \subsection{Fog Computing}
 
-The Fog Computing places the computing complexity at the local network level. Typically the complexity is put between the cloud and the IoT sensors. The devices are sending their data to a Middleware and the CEP engine is processing the data locally and send the processed events to a service running in the Cloud or on a local server.
+The Fog Computing places the computing intelligence at the local network level. Typically the complexity is put between the Cloud and the IoT sensors. The devices are sending their data to a Middleware and the CEP engine is processing the data locally and send the processed events to a service running in the Cloud or on a local server. This method offers the CEP performances on a closer level where the data are created. Then the applications where latency is crucial, the Fog Computing can fit with their business needs. For example, the auto mobile or aerospace sector are more and more connected and the reactivity of their system needs to be as fast as possible.
+\newline
+\begin{figure}[H]
+	\includegraphics[width=\textwidth,height=160pt]{assets/Fog_Computing.jpg}
+	\caption{Fog Computing}
+	\label{fig:Fog-Computing}
+\end{figure}
+
+It can happen that the edge devices are sending too much data and very fast. Then the fog computing can still respond too slowly because of the massive data reception. The CEP philosophy can be put at the lowest level with Edge Computing.
 
 %----------------------------------------------------------------------------------------
 
 \subsection{Edge Computing}
+
+Edge computing refers to the enabling technologies allowing computation to be performed at the edge of the network,on downstream data on behalf of cloud services and upstream data on behalf of IoT services. Here we define “edge” as any computing and network resources along the path between data sources and cloud data centers.\cite{Edge Computing - Vision and Challenges}
+
+The Edge Computing places the computing complexity at the Physical Layer. This method reduces the network traffic to the Fog Nodes and the Cloud because less informations will be transferred. Therefore it reduces the risk of data congestion and the CEP engines are not flooded. Edge Computing is generally used by industries in Cyber Physical Systems\footnote{Cyber-Physical Systems (CPS) are integrations of computation and physical processes. Embedded computers and networks monitor and control the physical processes, usually with feedback loops where physical processes affect computations and vice versa \cite{5}}.
+
+\newpage
 
 %----------------------------------------------------------------------------------------
 

@@ -1,4 +1,10 @@
-Images:
+=============
+== Images: ==
+=============
 
+Abstract_IoT_Architecture.png     => Dans un article (à trouver en haut)
+Basic_IOT_Architecture.png        => Dans un article (même que le précédent)
 cep-pattern-decision-reaction.png => https://www.tibco.com/blog/2009/12/18/cep-more-than-event-patterns/
-Schéma simple.png => Towards a lightweight CEP engine for embedded Systems.pdf 
+Cloud_Computing.png               => https://mapr.com/blog/cool-fitness-tracker-using-iot-sensors-cloud-ml-on-mapr/
+Fog_Computing.jpg                 => https://www.manuauto.com/category/moxa/page/4/
+
