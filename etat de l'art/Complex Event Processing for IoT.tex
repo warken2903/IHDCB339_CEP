@@ -184,12 +184,16 @@ The previous architecture can be simplified to highlight the layer of architectu
 
 This state of the art is focusing on the "Computation and Processing System" layer because at that stage, the data processing is the most critical and the data flow is the highest. Obviously, the Communication Layer must be robust enough to transmit the data efficiently but this topic will not be tackled in this article.
 
+\section{Event Driven Architecture}
+
+
+
 \section{Database and Data Stream Management Systems}
 
-Real-time applications are consuming the data in a different way comparing to a traditional system. On a traditional information system using a Database Management Systems (DBMS), the information stored in the database related to an specific entity is a "static" data persisted. The information stored in an aggregation of the reality. Only the current state of the information is relevant for the system. This type of Data management doesn't fit all real-time applications' needs. A real-time application needs to correlate each events coming into the system. Unfortunately, an IoT solution is sending too much data into the system. It's not possible for a traditional database to store, query and respond in a timely manner. 
+Real-time applications are consuming the data in a different way comparing to a traditional system. On a traditional information system using a Database Management Systems (DBMS), the information stored in the database related to an specific entity is a "static" data persisted. The information stored in an aggregation of the reality. Only the current state of the information is relevant for the system. This type of Data management doesn't fit all real-time applications' needs. A real-time application needs to correlate each events coming into the system. An IoT solution is sending too much data into the system. It's not possible for a traditional database to store, query and respond in a timely manner. 
 \newline
 \newline
-The Data Stream Management Systems are designed to handle potentially infinite and fast changing event streams. Obviously, it is not possible to query the all history of events that came from the beginning of the solution and respond in milliseconds. Different approaches exist to limit the amount of data processed. Roughly, compression techniques exists to summarize a set of data already queried. Another technique consists of setting a time window to pick a portion of data in the time.
+The Data Stream Management Systems are designed to handle potentially infinite and fast changing event streams. Obviously, it is not possible to query the all history of events that came from the beginning of the solution and respond in milliseconds. Different approaches exist to limit the amount of data processed. Roughly, compression techniques exists to summarize a set of data already queried. Another technique consists of setting a time window to pick a portion of data in the time. 
 %----------------------------------------------------------------------------------------
 %	Complex Event Processing
 %----------------------------------------------------------------------------------------
@@ -202,6 +206,8 @@ Complex Event Processing (CEP) is a set of methods and techniques for tracking
 and analysing real-time streams of informations and detecting patterns or correlations
 of unrelated data (complex events) that are of interest to a particular
 business. \cite{1} The complex event processing is the engine of real-time applications that needs to have real-time informations from an environment to respond as fast as possible. A standard Request/Reply with synchronous processes cannot correlate different type of events and respond in a timely manner. Complex Event Processing mechanisms are often used in Event Driven architectures. This architecture fits with the Internet of Things needs. This kind of architecture is driven by events sent by connected objects. Then, the services at the application layer are consuming those events.
+
+\subsection{Event Correlation}
 
 \subsection{CEP Engine}
 
@@ -295,6 +301,18 @@ The Edge Computing places the computing complexity at the Physical Layer. This m
 %----------------------------------------------------------------------------------------
 
 \section{Publish-Subscribe Architecture}
+
+The publish-subscribe pattern in software architecture is a messaging pattern where the sender of the message doesn't know the receiver. On the other side, the receiver doesn't know the sender as well. The publisher is sending a message on a message queue where subscriber(s) are listening to. In Internet of Things solutions, the producers and consumers can be the connected objects themselves but it can also be an application layer in the Cloud for example. The connected objects are publishing events on event topics and the application layer processes those events. They process those events with CEP engines and when the pattern is matching with a defined rule, they send messages to the connected objects through message queues. Then, the connected objects can update their state and perform actions.
+\newline
+\newline
+The article "A Semantic Publish-Subscribe Architecture" \cite{A Semantic Publish-Subscribe Architecture} suggests an interesting asynchronous architecture based on the Publish-Subscribe design pattern. This architecture prone the modularity, extensibility and cost-effective vision. It splits the physical world from its digital representation. The primary characteristic consists of splitting clients into 3 categories: consumers, producers and aggregators. The consumers and producers need to stay a simple as possible. The business logic is driven by the aggregators. The producers and the consumers are the bridge between the physical world and the virtual representation of the systems. This principle keeps the business logic outside the connected devices in order to keep the sensors as simple as possible. It gives to the objects the unique responsibility to send data to an upper layer without executing any business logic. Hence, this system is easier to extend because only the application layer will be impacted if a business feature is added.
+\newline
+\newline
+\textcolor{red}{Parler du role des producers et aggregateurs (voir dans l'article en surligné)}
+
+\section{Micro-services Architecture}
+
+
 
 %----------------------------------------------------------------------------------------
 
