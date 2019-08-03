@@ -184,11 +184,7 @@ The previous architecture can be simplified to highlight the layer of architectu
 
 This state of the art is focusing on the "Computation and Processing System" layer because at that stage, the data processing is the most critical and the data flow is the highest. Obviously, the Communication Layer must be robust enough to transmit the data efficiently but this topic will not be tackled in this article.
 
-\section{Event Driven Architecture}
-
-
-
-\section{Database and Data Stream Management Systems}
+\subsection{Database and Data Stream Management Systems}
 
 Real-time applications are consuming the data in a different way comparing to a traditional system. On a traditional information system using a Database Management Systems (DBMS), the information stored in the database related to an specific entity is a "static" data persisted. The information stored in an aggregation of the reality. Only the current state of the information is relevant for the system. This type of Data management doesn't fit all real-time applications' needs. A real-time application needs to correlate each events coming into the system. An IoT solution is sending too much data into the system. It's not possible for a traditional database to store, query and respond in a timely manner. 
 \newline
@@ -209,9 +205,11 @@ business. \cite{1} The complex event processing is the engine of real-time appli
 
 \subsection{Event Correlation}
 
+The events coming directly from the Thing's sensors are call raw events. Those events are the trigger of one or multiple process in an IoT solution. The raw events are the events coming from the real world. It may represent a simple real-world event or a complex real-world event. Those raw events often need to be pre-processed before integrating a more sophisticated system. Without the pre-processing it would be difficult for a system to understand the information correctly and correlate it with other events. A strict semantic between different type of events have to be put in place for the whole IoT system. That's why a complete ontology should structure all the domain application of an IoT system.
+
 \subsection{CEP Engine}
 
-The CEP engine is consuming the events sent by the physical objects on the Communication Layer. This engine can define a bunch of rules where each event received will be evaluated. A rule represents a complex condition that can be based on multiple events and on a time window. For example, if all connected cameras in a house are sending that there aren't any move in the house in a time window of 60 seconds, an event saying that nobody is in the house will be sent. Then, some specific actions can be taken by connected devices in the house. 
+The CEP engine is consuming the events sent by the physical objects on the Communication Layer. This engine can define a bunch of rules where each event received will be evaluated. A rule represents a complex condition that can be based on multiple events and on a time window. For example, if all connected cameras in a house are sending that there aren't any move in the house in a time window of 60 seconds, an event saying that nobody is in the house will be sent. Then, some specific actions can be taken by connected devices in the house. Basically, a Complex Event Processing Engine correlates multiple type of events based on the time. Then, if the pattern defined in the rule is matching with the ingested events, a complex event is sent. A complex event is an event that summarizes, represents, or denotes a set of other events\cite{glossary}. The complex events generated can themselves triggers another CEP rule or an application process.
 \newline
 \begin{figure}[h]
 	\includegraphics[scale=0.6]{assets/cep-pattern-decision-reaction.png} 
@@ -219,6 +217,9 @@ The CEP engine is consuming the events sent by the physical objects on the Commu
 	\label{fig:cep-pattern-decision-reaction}
 \end{figure}
 
+The rules are able to correlate different type of events only if their structure are known. If an event is unrecognisable by the pattern, this event can be ignored or a different kind of action can be put in place. It is possible to send a warning event that something unexpected by the system happened for example. 
+\newline
+\newline
 The technologies implementing CEP concepts are querying Time Series Databases where each event received are stored. Thoses databases are optimised for queries based on a time window. In a lot of CEP framework like Apache Flink, those CEP rules are describe like an SQL Query and uses Event Pattern Languages. 
 
 \subsection{Event Pattern Languages}
@@ -300,25 +301,42 @@ The Edge Computing places the computing complexity at the Physical Layer. This m
 
 %----------------------------------------------------------------------------------------
 
-\section{Semantic Complex Event Processing}
+\section{Semantic Publish-Subscribe Architecture}
 
-The publish-subscribe pattern in software architecture is a messaging pattern where the sender of the message doesn't know the receiver. On the other side, the receiver doesn't know the sender as well. The publisher is sending a message on a message queue where subscriber(s) are listening to. In Internet of Things solutions, the producers and consumers can be the connected objects themselves but it can also be an application layer in the Cloud for example. The connected objects are publishing events on event topics and the application layer processes those events. They process those events with CEP engines and when the pattern is matching with a defined rule, they send messages to the connected objects through message queues. Then, the connected objects can update their state and perform actions.
+The article "A Semantic Publish-Subscribe Architecture" \cite{A Semantic Publish-Subscribe Architecture} suggests an interesting asynchronous architecture based on the Publish-Subscribe design pattern. The publish-subscribe pattern in software architecture is a messaging pattern where the sender of the message doesn't know the receiver. On the other side, the receiver doesn't know the sender as well. The publisher is sending a message on a message queue where subscriber(s) are listening to. In Internet of Things solutions, the producers and consumers can be the connected objects themselves but it can also be an application layer in the Cloud for example. The connected objects are publishing events on event topics and the application layer processes those events.
+
+\begin{figure}[H]
+	\includegraphics[width=\textwidth,height=160pt]{assets/SPS_Architecture.png}
+	\caption{Semantic Publish Subscribe Architecture\cite{article_SPS}}
+	\label{fig:Semantic-Publish-Subscribe-Architecture}
+\end{figure}
+
+The SPS architecture prone the modularity, extensibility and cost-effective vision. It splits the physical world from its digital representation. The primary characteristic consists of splitting clients into 3 categories: consumers, producers and aggregators. The business logic is driven by the aggregators. The producers and the consumers are the bridge between the physical world and the virtual representation of the systems. This principle keeps the business logic at the aggregator level in order to keep the clients and producers as simple as possible. It gives to the producers the unique responsibility to send data to an upper layer without executing any business logic. Hence, this system is easier to extend because only the aggregator layer is impacted if a business feature is added. Then, the consumers and producers can be shared by different applications.
 \newline
 \newline
-The article "A Semantic Publish-Subscribe Architecture" \cite{A Semantic Publish-Subscribe Architecture} suggests an interesting asynchronous architecture based on the Publish-Subscribe design pattern. This architecture prone the modularity, extensibility and cost-effective vision. It splits the physical world from its digital representation. The primary characteristic consists of splitting clients into 3 categories: consumers, producers and aggregators. The business logic is driven by the aggregators. The producers and the consumers are the bridge between the physical world and the virtual representation of the systems. This principle keeps the business logic at the aggregator level in order to keep the clients and producers as simple as possible. It gives to the producers the unique responsibility to send data to an upper layer without executing any business logic. Hence, this system is easier to extend because only the aggregator layer is impacted if a business feature is added. Then, the consumers and producers can be shared by different applications.
+The role of the producers is to collect the data from the sensors. The producer can optionally make a local processing where it encapsulate the data to a semantic format. After that, the producer send the information to the SUB Engine that will store the data in a Triplestore.
+Contrarily, the consumers are listening to the concrete events coming in the SUB Engine that can be a result of a processing done by an aggregator. After receiving an notification, the consumers extract the raw data and send it to a devices through a legacy interface.
+\begin{figure}[H]
+	\includegraphics[width=\textwidth,height=160pt]{assets/simple_SPS_example.png}
+	\caption{Sequence diagram of Smart Lightning\cite{article_SPS}}
+	\label{fig:Sequence-diagram-of-Smart-Lightning}
+\end{figure}
+The aggregators are listening to the events sent by the producer through the SUB Engine. Each aggregator subscribes to each event type they need for their business process. The Fig.7 exposes a simple use case of Smart Lightning where each type of clients described previously is used. The presence sensor acts as a producer and store the presence state in the RDF Store. The Lamp actuator acts as a consumer and subscribe to the Lamp events. The Smart Lightning acts as an aggregator to handle incoming events and triggers a business process based on those events.
 \newline
 \newline
-The role of the producers is to collect the data from the sensors. The producer can optionally make a local processing where it encapsulate the data to a semantic format. After that, the producer send the information to the SUB Engine where a CEP Engine will process the event.
-Contrarily, the consumers are listening to the concrete events coming in the SUB Engine that can be a result of a Complex Event Processing from a CEP Engine and/or a process done by an Aggregator. After receiving an notification, the consumers extract the raw data and send it to a devices through a legacy interface.
-
-\section{Micro-services Architecture}
-
-\section{Penser à parler de tous les termes (raw event, simple event, complex event, Event Processing Agent...)}
-
-%----------------------------------------------------------------------------------------
-
-\section{IoT Platform extension}
-
+\textbf{Scenario:}
+\newline
+1. The Lamp Actuator is subscribing to the Lamp events and the Smart Lightning aggregator is subscribing to the Presence events.
+2. The Presence sensor is Sending an Event to the SUB Engine that a presence is detected. 
+3. The presence event is captured by the Smart Lighting aggregator that will send an event to switch on the lamp. 
+4. The "Switch ON the lamp" event is captured by the Lamp actuator that communicate the information to the connected lamp. 
+5. The presence sensors is sending that no presence is detected. 
+6. The Smart Lightning schedules to send an event to switch off the light after x seconds if no presence is detected during that time laps.
+7. A presence is detected, then the Smart Lightning cancels his event scheduling.
+8. The presence sensors is sending that no presence is detected. 
+9. The Smart Lightning schedules to send an event to switch off the light after x seconds if no presence is detected during that time laps.
+10. The Smart Lightning process sends the Switch off lamp event.
+11. The Lamp actuator is switching off the light.
 
 %----------------------------------------------------------------------------------------
 
