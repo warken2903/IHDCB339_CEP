@@ -3,37 +3,7 @@
 %----------------------------------------------------------------------------------------
 
 \documentclass[11pt]{article}
-
-\usepackage{amsmath,amsfonts,stmaryrd,amssymb} % Math packages
-
-\usepackage{enumerate} % Custom item numbers for enumerations
-
-\usepackage[ruled]{algorithm2e} % Algorithms
-
-\usepackage{float}
-
-\usepackage[framemethod=tikz]{mdframed} % Allows defining custom boxed/framed environments
-
-\usepackage{biblatex}
-
-\usepackage{listings} % File listings, with syntax highlighting
-\lstset{
-	basicstyle=\ttfamily, % Typeset listings in monospace font
-}
-
-\usepackage{graphicx}
-
-\usepackage{hyperref}
-
-\makeatletter
-\newcommand{\addloflink}[1]{% \addloflink{<URL>}
-  \addtocontents{lof}{\begingroup\def\protect\@dotsep{10000}% Remove dots in LoF for this entry
-    \protect\contentsline{figlink}{\protect\numberline{}\url{#1}}{}{}%
-    \endgroup}% Restore dots in LoF for future entries
-}
-\newcommand{\l@figlink}{\@dottedtocline{1}{1.5em}{2.3em}}
-\makeatother
-
+\input{structure.tex}
 \bibliography{biblio}
 
 \begin{document}
@@ -159,7 +129,7 @@ A thing can be any connected device from our daily life that is able to capture 
 
 The architecture of an Internet of Things solution can be implemented with various technologies and in very different infrastructures. However, a generic high level architecture is common to all IoT projects:
 \begin{figure}[h]
-	\includegraphics[width=0.8\textwidth]{assets/Abstract_IoT_Architecture.png} 
+	\includegraphics[width=\textwidth,height=230pt]{assets/Abstract_IoT_Architecture.png} 
 	\caption{Generic Architecture}
 	\label{fig:genericArchitecture}
 \end{figure}
@@ -177,7 +147,7 @@ The architecture of an Internet of Things solution can be implemented with vario
 The previous architecture can be simplified to highlight the layer of architecture on which this state of the art will focus.
 \newline
 \begin{figure}[h]
-	\includegraphics[width=0.8\textwidth]{assets/Basic_IOT_Architecture.png} 
+	\includegraphics[width=\textwidth,height=180pt]{assets/Basic_IOT_Architecture.png} 
 	\caption{Simple IoT Architecture}
 	\label{fig:simpleArchitecture}
 \end{figure}
@@ -186,10 +156,10 @@ This state of the art is focusing on the "Computation and Processing System" lay
 
 \subsection{Database and Data Stream Management Systems}
 
-Real-time applications are consuming the data in a different way comparing to a traditional system. On a traditional information system using a Database Management Systems (DBMS), the information stored in the database related to an specific entity is a "static" data persisted. The information stored in an aggregation of the reality. Only the current state of the information is relevant for the system. This type of Data management doesn't fit all real-time applications' needs. A real-time application needs to correlate each events coming into the system. An IoT solution is sending too much data into the system. It's not possible for a traditional database to store, query and respond in a timely manner. 
+Real-time applications are consuming the data in a different way comparing to a traditional system. A traditional information system using a Database Management Systems (DBMS), the information stored in the database related to an specific entity is a "static" data persisted. The information stored in an aggregation of the reality. Only the current state of the information is relevant for the system. This type of Data management doesn't fit all real-time applications' needs. A real-time application needs to correlate each events coming into the system. An IoT solution is sending too much data into the system. It's not possible for a traditional database to store, query and respond in a timely manner. 
 \newline
 \newline
-The Data Stream Management Systems are designed to handle potentially infinite and fast changing event streams. Obviously, it is not possible to query the all history of events that came from the beginning of the solution and respond in milliseconds. Different approaches exist to limit the amount of data processed. Roughly, compression techniques exists to summarize a set of data already queried. Another technique consists of setting a time window to pick a portion of data in the time. 
+The Data Stream Management Systems (DSMS) are designed to handle potentially infinite and fast changing event streams. Obviously, it is not possible to query the all history of events that came from the beginning of the solution and respond in milliseconds. Different approaches exist to limit the amount of data processed. Roughly, compression techniques exists to summarize a set of data already queried. Another technique consists of setting a time window to pick a portion of data in the time. 
 %----------------------------------------------------------------------------------------
 %	Complex Event Processing
 %----------------------------------------------------------------------------------------
@@ -205,14 +175,14 @@ business. \cite{1} The complex event processing is the engine of real-time appli
 
 \subsection{Event Correlation}
 
-The events coming directly from the Thing's sensors are call raw events. Those events are the trigger of one or multiple process in an IoT solution. The raw events are the events coming from the real world. It may represent a simple real-world event or a complex real-world event. Those raw events often need to be pre-processed before integrating a more sophisticated system. Without the pre-processing it would be difficult for a system to understand the information correctly and correlate it with other events. A strict semantic between different type of events have to be put in place for the whole IoT system. That's why a complete ontology should structure all the domain application of an IoT system.
+The events coming directly from the Thing's sensors are call raw events. Those events are the trigger of one or multiple process in an IoT solution. The raw events are the events coming from the real world. It may represent a simple real-world event or a complex real-world event. Those raw events often need to be pre-processed before integrating a more sophisticated system. Without the pre-processing it would be difficult for a system to understand the information correctly and correlate it with other events. A strict semantic between different type of events have to be put in place for the whole IoT system. That's why a complete ontology should structure all the domain application. Generally, two types of events can occur in the system: Internal and External. The internal events are the events sent by the application layer. The external event are the events sent by the "physical" sensors.
 
-\subsection{CEP Engine}
+\subsection{CEP Engine} \label{cep-engine}
 
 The CEP engine is consuming the events sent by the physical objects on the Communication Layer. This engine can define a bunch of rules where each event received will be evaluated. A rule represents a complex condition that can be based on multiple events and on a time window. For example, if all connected cameras in a house are sending that there aren't any move in the house in a time window of 60 seconds, an event saying that nobody is in the house will be sent. Then, some specific actions can be taken by connected devices in the house. Basically, a Complex Event Processing Engine correlates multiple type of events based on the time. Then, if the pattern defined in the rule is matching with the ingested events, a complex event is sent. A complex event is an event that summarizes, represents, or denotes a set of other events\cite{glossary}. The complex events generated can themselves triggers another CEP rule or an application process.
 \newline
 \begin{figure}[h]
-	\includegraphics[scale=0.6]{assets/cep-pattern-decision-reaction.png} 
+	\includegraphics[width=\textwidth,height=160pt]{assets/cep-pattern-decision-reaction.png} 
 	\caption{CEP Pattern Decision Reaction}
 	\label{fig:cep-pattern-decision-reaction}
 \end{figure}
@@ -220,7 +190,7 @@ The CEP engine is consuming the events sent by the physical objects on the Commu
 The rules are able to correlate different type of events only if their structure are known. If an event is unrecognisable by the pattern, this event can be ignored or a different kind of action can be put in place. It is possible to send a warning event that something unexpected by the system happened for example. 
 \newline
 \newline
-The technologies implementing CEP concepts are querying Time Series Databases where each event received are stored. Thoses databases are optimised for queries based on a time window. In a lot of CEP framework like Apache Flink, those CEP rules are describe like an SQL Query and uses Event Pattern Languages. 
+The technologies implementing CEP concepts are querying Time Series Databases where each event received are stored. Thoses databases are optimised for queries based on a time window. In a lot of CEP framework like Apache Flink, those CEP pattern matching rules are describe seemly an SQL Query and uses Event Pattern Languages. 
 
 \subsection{Event Pattern Languages}
 
@@ -256,6 +226,18 @@ A plenty of primitive operators exists in Event Pattern Languages to describe th
 
 %--------------------------------------------------------------------------------------
 
+\subsection{Event-Condition-Action Pattern}
+
+As seen in section \ref{cep-engine}, the CEP Engine is composed of events to detect, a set of rules to execute and actions to perform. Basically, this CEP approach is called Event-Condition-Action and separate the operations in three stages : Event processing, Condition evaluation and Action execution. This pattern is often used in the most popular CEP Frameworks (e.g.Apache Flink, Esper, Google Dataflow and Apache Heron). The Event processing stage is itself divided into three parts : Event detection, Event subscription and Event processing. The aforementioned stage is responsible to detect events, subscribe and process events. The condition stage is the step where rules are defined by Event Pattern Languages. The Rule Engine is composed of a fact base and rule base. The fact base represents the current state of all facts defined in the system. A fact is a situation that can occur in the system. For example, if a detection event is sent by a sensor in a bedroom, the fact can be "Someone is in the Bob's bedroom". Rules consist of an ECA based pattern: on {<}event{>} if {<}condition{>} then {<}action{>}. Whenever an event occurs, the rule scanner checks all relevant rules to determine any consequent actions that need to be initiated. \cite{IoT Architecture based on services and Events}
+
+\begin{figure}[h]
+	\includegraphics[width=\textwidth,height=90pt]{assets/ECA_illustration.png}
+	\caption{Event-Condition-Action}
+	\label{fig:Event-Condition-Action}
+\end{figure}
+
+%--------------------------------------------------------------------------------------
+
 \section{Computing Levels}
 
 The main preoccupations of a real-time solution in IoT is to have the lowest latency between all devices. To process all data coming from sensors, CEP engines can help reducing the processing time. The CEP engines can be placed at different level of the IoT architecture. The place where Complex Event Processing is used depends of the business needs. 
@@ -283,13 +265,15 @@ Of course the Cloud Computing can be coupled with other levels of computing and 
 
 The Fog Computing places the computing intelligence at the local network level. Typically the complexity is put between the Cloud and the IoT sensors. The devices are sending their data to a Middleware and the CEP engine is processing the data locally and send the processed events to a service running in the Cloud or on a local server. This method offers the CEP performances on a closer level where the data are created. Then the applications where latency is crucial, the Fog Computing can fit with their business needs. For example, the auto mobile or aerospace sector are more and more connected and the reactivity of their system needs to be as fast as possible.
 \newline
+
+It can happen that the edge devices are sending too much data at very high rate. The fog computing can still respond too slowly because the processing of a huge amount of data is taking too much time. The Complex Event Processing can be put at the lowest level with Edge Computing.
+
 \begin{figure}[H]
 	\includegraphics[width=\textwidth,height=160pt]{assets/Fog_Computing.jpg}
 	\caption{Fog Computing}
 	\label{fig:Fog-Computing}
 \end{figure}
 
-It can happen that the edge devices are sending too much data and very fast. Then the fog computing can still respond too slowly because of the massive data reception. The CEP philosophy can be put at the lowest level with Edge Computing.
 
 %----------------------------------------------------------------------------------------
 
@@ -306,7 +290,7 @@ The Edge Computing places the computing complexity at the Physical Layer. This m
 The article "A Semantic Publish-Subscribe Architecture" \cite{A Semantic Publish-Subscribe Architecture} suggests an interesting asynchronous architecture based on the Publish-Subscribe design pattern. The publish-subscribe pattern in software architecture is a messaging pattern where the sender of the message doesn't know the receiver. On the other side, the receiver doesn't know the sender as well. The publisher is sending a message on a message queue where subscriber(s) are listening to. In Internet of Things solutions, the producers and consumers can be the connected objects themselves but it can also be an application layer in the Cloud for example. The connected objects are publishing events on event topics and the application layer processes those events.
 
 \begin{figure}[H]
-	\includegraphics[width=\textwidth,height=160pt]{assets/SPS_Architecture.png}
+	\includegraphics[width=\textwidth,height=200pt]{assets/SPS_Architecture.png}
 	\caption{Semantic Publish Subscribe Architecture\cite{article_SPS}}
 	\label{fig:Semantic-Publish-Subscribe-Architecture}
 \end{figure}
@@ -317,11 +301,11 @@ The SPS architecture prone the modularity, extensibility and cost-effective visi
 The role of the producers is to collect the data from the sensors. The producer can optionally make a local processing where it encapsulate the data to a semantic format. After that, the producer send the information to the SUB Engine that will store the data in a Triplestore.
 Contrarily, the consumers are listening to the concrete events coming in the SUB Engine that can be a result of a processing done by an aggregator. After receiving an notification, the consumers extract the raw data and send it to a devices through a legacy interface.
 \begin{figure}[H]
-	\includegraphics[width=\textwidth,height=160pt]{assets/simple_SPS_example.png}
+	\includegraphics[width=\textwidth,height=190pt]{assets/simple_SPS_example.png}
 	\caption{Sequence diagram of Smart Lightning\cite{article_SPS}}
 	\label{fig:Sequence-diagram-of-Smart-Lightning}
 \end{figure}
-The aggregators are listening to the events sent by the producer through the SUB Engine. Each aggregator subscribes to each event type they need for their business process. The Fig.7 exposes a simple use case of Smart Lightning where each type of clients described previously is used. The presence sensor acts as a producer and store the presence state in the RDF Store. The Lamp actuator acts as a consumer and subscribe to the Lamp events. The Smart Lightning acts as an aggregator to handle incoming events and triggers a business process based on those events.
+The aggregators are listening to the events sent by the producer through the SUB Engine. Each aggregator subscribes to each event type they need for their business process. The fig.\ref{fig:Sequence-diagram-of-Smart-Lightning} exposes a simple use case of Smart Lightning where each type of clients described previously is used. The presence sensor acts as a producer and store the presence state in the RDF Store. The Lamp actuator acts as a consumer and subscribe to the Lamp events. The Smart Lightning acts as an aggregator to handle incoming events and triggers a business process based on those events.
 \newline
 \newline
 \textbf{Scenario:}
@@ -335,7 +319,7 @@ The aggregators are listening to the events sent by the producer through the SUB
 7. A presence is detected, then the Smart Lightning cancels his event scheduling.
 8. The presence sensors is sending that no presence is detected. 
 9. The Smart Lightning schedules to send an event to switch off the light after x seconds if no presence is detected during that time laps.
-10. The Smart Lightning process sends the Switch off lamp event.
+10. The Smart Lightning Aggregator sends the "Switch off lamp" event.
 11. The Lamp actuator is switching off the light.
 
 %----------------------------------------------------------------------------------------
