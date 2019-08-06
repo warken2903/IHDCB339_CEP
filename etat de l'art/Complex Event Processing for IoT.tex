@@ -1,86 +1,60 @@
 %----------------------------------------------------------------------------------------
 %	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
 %----------------------------------------------------------------------------------------
-
 \documentclass[11pt]{article}
 \input{structure.tex}
 \bibliography{biblio}
-
 \begin{document}
-
 %----------------------------------------------------------------------------------------
 %	TITLE PAGE
 %----------------------------------------------------------------------------------------
-
-\begin{titlepage} % Suppresses displaying the page number on the title page and the subsequent page counts as page 1
-	\newcommand{\HRule}{\rule{\linewidth}{0.5mm}} % Defines a new command for horizontal lines, change thickness here
-	
-	\center % Centre everything on the page
-	
+\begin{titlepage}
+	\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+	\center
 	%------------------------------------------------
 	%	Headings
 	%------------------------------------------------
-	
-	\textsc{\LARGE University of Namur}\\[1.5cm] % Main heading such as the name of your university/college
-	
-	\textsc{\Large Initiation à la démarche scientifique}\\[0.5cm] % Major heading such as course name
-	
-	\textsc{\large IHDCB339}\\[0.5cm] % Minor heading such as course title
-	
+	\textsc{\LARGE University of Namur}\\[1.5cm]
+	\textsc{\Large Initiation à la démarche scientifique}\\[0.5cm]
+	\textsc{\large IHDCB339}\\[0.5cm]
 	%------------------------------------------------
 	%	Title
-	%------------------------------------------------
-	
+	%------------------------------------------------	
 	\HRule\\[0.4cm]
-	
-	{\huge\bfseries State of the Art: Complex Event Processing for Internet of Things}\\[0.4cm] % Title of your document
-	
-	\HRule\\[1.5cm]
-	
+	{\huge\bfseries State of the Art: Complex Event Processing for Internet of Things}\\[0.4cm]
+	\HRule\\[1.5cm]	
 	%------------------------------------------------
 	%	Author(s)
-	%------------------------------------------------
-	
+	%------------------------------------------------	
 	\begin{minipage}{0.4\textwidth}
 		\begin{flushleft}
 			\large
 			\textit{Author}\\
-			Kenny \textsc{Warszawski} % Your name
+			Kenny \textsc{Warszawski} 
 		\end{flushleft}
 	\end{minipage}
 	~
 	\begin{minipage}{0.4\textwidth}
 		\begin{flushright}
 			\large
-			\textit{Supervisor}\\
-			Moussa \textsc{Amrani} % Supervisor's name
-			\newline
-			Pierre-Yves \textsc{Schobbens} % Supervisor's name
+			\textit{Supervisors}\\
+			Moussa \textsc{Amrani}
+			\\
+			Pierre-Yves \textsc{Schobbens} 
 		\end{flushright}
-	\end{minipage}
-	
+	\end{minipage}	
 	%------------------------------------------------
 	%	Date
-	%------------------------------------------------
-	
-	\vfill\vfill\vfill % Position the date 3/4 down the remaining page
-	
-	{\large\today} % Date, change the \today to a set date if you want to be precise
-	
+	%------------------------------------------------	
+	\vfill\vfill\vfill
+	{\large\today}
 	%------------------------------------------------
 	%	Logo
 	%------------------------------------------------
-	
 	\vfill\vfill
-	\includegraphics[width=0.2\textwidth]{placeholder.png}\\[1cm] % Include a department/university logo - this will require the graphicx package
-	 
-	%----------------------------------------------------------------------------------------
-	
-	\vfill % Push the date up 1/4 of the remaining page
-	
+	\includegraphics[width=0.2\textwidth]{placeholder.png}\\[1cm]
+	\vfill
 \end{titlepage}
-
-%----------------------------------------------------------------------------------------
 
 %----------------------------------------------------------------------------------------
 %	Beginning
@@ -99,19 +73,9 @@ How is it possible to handle such an important data traffic efficiently ?
 Indeed, if an entire city has a huge amount of connected objects, the data flow to be processed is massive.
 Therefore efficient data processing mechanisms need to be put in place to handle such flows.
 
-\textcolor{red}{Ajouter du texte, pas assez long}
-\textcolor{red}{Parler des CPS, Fraud Detection, Health, Block chain ?}
+
+\textcolor{red}{Parler des CPS, Fraud Detection, Health, Fault Tolerance, structure de l'état de l'art, etc}
 \newpage
-%--------------
-% \begin{itemize}
-%    \item \textbf{Item 1:} My item \cite{1}
-% \end{itemize}
-%----------------
-
-%----------------------------------------------------------------------------------------
-%	Different levels of treatment
-%----------------------------------------------------------------------------------------
-
 
 \section{Context}
 
@@ -128,8 +92,8 @@ A thing can be any connected device from our daily life that is able to capture 
 \subsection{IoT architecture}
 
 The architecture of an Internet of Things solution can be implemented with various technologies and in very different infrastructures. However, a generic high level architecture is common to all IoT projects:
-\begin{figure}[h]
-	\includegraphics[width=\textwidth,height=230pt]{assets/Abstract_IoT_Architecture.png} 
+\begin{figure}[H]
+	\includegraphics[width=\textwidth,height=200pt]{assets/Abstract_IoT_Architecture.png} 
 	\caption{Generic Architecture}
 	\label{fig:genericArchitecture}
 \end{figure}
@@ -154,12 +118,6 @@ The previous architecture can be simplified to highlight the layer of architectu
 
 This state of the art is focusing on the "Computation and Processing System" layer because at that stage, the data processing is the most critical and the data flow is the highest. Obviously, the Communication Layer must be robust enough to transmit the data efficiently but this topic will not be tackled in this article.
 
-\subsection{Database and Data Stream Management Systems}
-
-Real-time applications are consuming the data in a different way comparing to a traditional system. A traditional information system using a Database Management Systems (DBMS), the information stored in the database related to an specific entity is a "static" data persisted. The information stored in an aggregation of the reality. Only the current state of the information is relevant for the system. This type of Data management doesn't fit all real-time applications' needs. A real-time application needs to correlate each events coming into the system. An IoT solution is sending too much data into the system. It's not possible for a traditional database to store, query and respond in a timely manner. 
-\newline
-\newline
-The Data Stream Management Systems (DSMS) are designed to handle potentially infinite and fast changing event streams. Obviously, it is not possible to query the all history of events that came from the beginning of the solution and respond in milliseconds. Different approaches exist to limit the amount of data processed. Roughly, compression techniques exists to summarize a set of data already queried. Another technique consists of setting a time window to pick a portion of data in the time. 
 %----------------------------------------------------------------------------------------
 %	Complex Event Processing
 %----------------------------------------------------------------------------------------
@@ -236,6 +194,13 @@ As seen in section \ref{cep-engine}, the CEP Engine is composed of events to det
 	\label{fig:Event-Condition-Action}
 \end{figure}
 
+\subsection{Database and Data Stream Management Systems}
+
+Real-time applications are consuming the data in a different way comparing to a traditional system. A traditional information system using a Database Management Systems (DBMS), the information stored in the database related to an specific entity is a "static" data persisted. The information stored in an aggregation of the reality. Only the current state of the information is relevant for the system. This type of Data management doesn't fit all real-time applications' needs. A real-time application needs to correlate each events coming into the system. An IoT solution is sending too much data into the system. It's not possible for a traditional database to store, query and respond in a timely manner. 
+\newline
+\newline
+The Data Stream Management Systems (DSMS) are designed to handle potentially infinite and fast changing event streams. Obviously, it is not possible to query the all history of events that came from the beginning of the solution and respond in milliseconds. Different approaches exist to limit the amount of data processed. Roughly, compression techniques exists to summarize a set of data already queried. Another technique consists of setting a time window to pick a portion of data in the time. 
+
 %--------------------------------------------------------------------------------------
 
 \section{Computing Levels}
@@ -263,10 +228,7 @@ Of course the Cloud Computing can be coupled with other levels of computing and 
 
 \subsection{Fog Computing}
 
-The Fog Computing places the computing intelligence at the local network level. Typically the complexity is put between the Cloud and the IoT sensors. The devices are sending their data to a Middleware and the CEP engine is processing the data locally and send the processed events to a service running in the Cloud or on a local server. This method offers the CEP performances on a closer level where the data are created. Then the applications where latency is crucial, the Fog Computing can fit with their business needs. For example, the auto mobile or aerospace sector are more and more connected and the reactivity of their system needs to be as fast as possible.
-\newline
-
-It can happen that the edge devices are sending too much data at very high rate. The fog computing can still respond too slowly because the processing of a huge amount of data is taking too much time. The Complex Event Processing can be put at the lowest level with Edge Computing.
+The Fog Computing places the computing intelligence at the local network level. Typically the complexity is put between the Cloud and the IoT sensors. The devices are sending their data to a Middleware and the CEP engine is processing the data locally and send the processed events to a service running in the Cloud or on a local server. This method offers the CEP performances on a closer level where the data are created. Then the applications where latency is crucial, the Fog Computing can fit with their business needs. For example, the auto mobile or aerospace sector are more and more connected and the reactivity of their system needs to be as fast as possible. Compared to a device-to-cloud architecture, placing processing closer to the devices can reduce the latency since the physical distance is shorter and potential response time in a data center can be removed. Compared to a deviceonly architecture, latency can be reduced since computationintensive tasks that take a long time on resource-constrained sensor devices can be moved to more capable fog computing nodes. The motivation can also be to keep the latency predictable.\cite{7248934}
 
 \begin{figure}[H]
 	\includegraphics[width=\textwidth,height=160pt]{assets/Fog_Computing.jpg}
@@ -274,14 +236,13 @@ It can happen that the edge devices are sending too much data at very high rate.
 	\label{fig:Fog-Computing}
 \end{figure}
 
+It can happen that the edge devices are sending too much data at very high rate. Therefore the processing engine at fog level is not treating the data fast enough because the processing of a huge amount of data is taking too much time. The Complex Event Processing can be put at the Edge devices level. The terms Fog and Edge computing have different meanings depending on the article. In some article, edge computing refers to the enabling technologies allowing computation to be performed at the edge of the network,on downstream data on behalf of cloud services and upstream data on behalf of IoT services.\cite{Edge Computing - Vision and Challenges} The limit between Fog and Edge computing is not clear. In this state-of-the-art we consider the Fog to be a higher layer on the top of physical devices like a server on a private network. 
 
 %----------------------------------------------------------------------------------------
 
 \subsection{Edge Computing}
 
-Edge computing refers to the enabling technologies allowing computation to be performed at the edge of the network,on downstream data on behalf of cloud services and upstream data on behalf of IoT services. Here we define “edge” as any computing and network resources along the path between data sources and cloud data centers.\cite{Edge Computing - Vision and Challenges}
-\newline\newline
-The Edge Computing places the computing complexity at the Physical Layer. This method reduces the network traffic to the Fog Nodes and the Cloud because less informations will be transferred. Therefore it reduces the risk of data congestion and the CEP engines are not flooded. Edge Computing is generally used by industries in Cyber Physical Systems\footnote{Cyber-Physical Systems (CPS) are integrations of computation and physical processes. Embedded computers and networks monitor and control the physical processes, usually with feedback loops where physical processes affect computations and vice versa \cite{5}}.
+The Edge Computing places the computing complexity at the Physical Layer. It can be an IoT gateway where data is pre-processed before being pushed to the Cloud or whatever. For example, in e-health some sensors can be put in a human body and the informations coming from the sensors are sent to a smartphone. The smartphone is processing those information before sending them. This method reduces the network traffic to the Fog Nodes and/or the Cloud because less informations will be transferred. Therefore it reduces the risk of data congestion and the CEP engines are not flooded. Edge Computing is generally used by industries in Cyber Physical Systems\footnote{Cyber-Physical Systems (CPS) are integrations of computation and physical processes. Embedded computers and networks monitor and control the physical processes, usually with feedback loops where physical processes affect computations and vice versa \cite{5}}.
 
 %----------------------------------------------------------------------------------------
 
@@ -324,7 +285,26 @@ The aggregators are listening to the events sent by the producer through the SUB
 
 %----------------------------------------------------------------------------------------
 
+\section{Micro-service architecture}
+
+
+%----------------------------------------------------------------------------------------
+
+%----------------------------------------------------------------------------------------
+
+\section{Domain of applications}
+
+
+	\subsection{Fault Tolerance}
+
+
+%----------------------------------------------------------------------------------------
+
 \section{Problematic}
+
+
+
+\textcolor{red}{Parler de l'idée envoyée par mail mais de manière structurée + comment quantifier + questions et sous questions}
 
 %----------------------------------------------------------------------------------------
 
