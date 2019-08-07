@@ -284,26 +284,31 @@ The aggregators are listening to the events sent by the producer through the SUB
 11. The Lamp actuator is switching off the light.
 
 %----------------------------------------------------------------------------------------
-
-\section{Micro-service architecture}
-
-
-%----------------------------------------------------------------------------------------
-
-%----------------------------------------------------------------------------------------
-
-\section{Domain of applications}
-
-
-	\subsection{Fault Tolerance}
-
-
+%\section{Domain of applications}
+%	\subsection{Fault Tolerance}
 %----------------------------------------------------------------------------------------
 
 \section{Problematic}
 
+\textcolor{red}{Prendre des exemples d'articles que j'ai analysé pour souligner des points}
 
+\subsection{Scalability and reliability}
 
+One of the main challenge in IoT is the increasing of connected objects. More connected objects means that more data is sent periodically. Therefore the load of data to process increases. The Complex Event Processing is one of the answer to this problematic. The CEP will filter, aggregate, summarize the information and send it to an application layer. Then, if we have more connected objects, more complex events will be sent to this application layer. The use-case of a connected building or hospital is a great example. An initial installation can be done in a building but after a while, the connected objects increase. Thus, the application layer could be overflowed by the number of events and accordingly the processing time may take too much time. The e-health sector needs to have a fast, robust, fault tolerant and scalable infrastructure. The scalability of an IoT architecture is really important because an IoT solution is growing at the same time as the physical world. Then, the virtual world designed in an Internet of Things solution should be adapted easily with the today world and the world of tomorrow. 
+\newline
+\newline
+All the infrastructure of an IoT solution should be flexible. The today containerization technologies offer the possibilities to do so. Kubernetes and Docker Swarm offers the possibility to manage such kind of infrastructure. These technologies enable the simplicity to scale up vertically in term of service instance. Each instance of a virtualized service can be replicated to share the load of the data to process for example. If at a moment t, a lot of data is coming to a specific service, this one can be scaled up automatically to load-balance the incoming requests. The Internet of Things needs to scale horizontally. Those containerization technologies gives the ability to create clusters. Those clusters can be formed initially by 5 hosts for example. If the resources to process the data are not sufficient, it is possible to add more servers at runtime. 
+\newline
+\newline
+\textcolor{red}{Parler de single point of failure => pas avec k8s car réparti sur plusieurs machines, replicated, blabla}
+
+\subsection{Device independence}
+
+\textcolor{red}{Les devices doivent être agnostique l'un de l'autre (car doit être interchangeable), pas de communication one-to-one (ou alors via gateway), privilégier pub-sub}
+
+\subsection{Micro-service architecture}
+
+\subsection{ }
 \textcolor{red}{Parler de l'idée envoyée par mail mais de manière structurée + comment quantifier + questions et sous questions}
 
 %----------------------------------------------------------------------------------------
