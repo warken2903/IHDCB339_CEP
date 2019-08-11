@@ -4,15 +4,15 @@ search-1 :
 
 -> Keywords : Complex Event Processing AND Internet of Things
 -> Filters Applied: 
+	- Most cited
 	- 2014 - 2019 (Puisque c'est un sujet récent, je me base sur des articles plutôt récents)
 
 search-2 :
 
--> ((((Internet of Things) AND Data Processing) NOT Complex Event Processing)) 
+-> Keyword: ((((Internet of Things) AND Data Processing) NOT Complex Event Processing)) 
 -> Filters Applied: 
-	- Journals & Magazines Books 
 	- Most cited
-	- 2015 - 2019 
+	- 2014 - 2019 
 
 [Idée pour la 3 eme recherche]
 
