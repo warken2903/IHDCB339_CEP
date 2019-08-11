@@ -15,7 +15,7 @@
 	%	Headings
 	%------------------------------------------------
 	\textsc{\LARGE University of Namur}\\[1.5cm]
-	\textsc{\Large Initiation à la démarche scientifique}\\[0.5cm]
+	\textsc{\Large Introduction to the scientific process}\\[0.5cm]
 	\textsc{\large IHDCB339}\\[0.5cm]
 	%------------------------------------------------
 	%	Title
@@ -62,22 +62,17 @@
 
 \section{Introduction}
 
-The Internet of Things is omnipresent and the amount of connected devices is increasing day by day.
-The Internet of Things is different from a classic information system by its capability for integrating with the physical world.
-Those devices are used in plenty of sectors (health, industry, transport, home automation, \ldots) and their users can be both professionals and individuals.
-Nowadays, we can see the apparition of connected devices for home to facilitate our daily life. (e.g: Google Home, Nest, Philips Hue)
-IoT is also an interesting technology for Smart Cities use case.
-We can imagine a city where traffic lights are optimised with the city mobility to avoid traffic jams for example.
-However, an important problem arises in this type of architecture.
-How is it possible to handle such an important data traffic efficiently ?
-Indeed, if an entire city has a huge amount of connected objects, the data flow to be processed is massive.
-Therefore efficient data processing mechanisms need to be put in place to handle such flows.
+The Internet of Things is omnipresent and the amount of connected devices is increasing day by day. The Internet of Things is different from a classic information system by its capability for integrating with the physical world. Those devices are used in plenty of sectors (health, industry, transport, home automation, \ldots) and their users can be both professionals and individuals. Nowadays, we can see the apparition of connected devices for home to facilitate our daily life. (e.g: Google Home, Nest, Philips Hue) Internet of Things is also an interesting technology for Smart Cities use case. We can imagine a city where traffic lights are optimised with the city mobility to avoid traffic jams for example. However, an important problem arises in this type of architecture. How is it possible to handle such an important data traffic efficiently ? Indeed, if an entire city has a huge amount of connected objects, the data flow to be processed is massive. Therefore efficient data processing mechanisms need to be put in place to handle such flows.
+\newline
+\newline
+The Complex Event Processing is a part of the solution to handle such massive data flow. Another problematic is the capacity for such systems to be simple to extend. If a new connected device is joining an Internet of Things solution, this one should be easy configurable and simple to add in the business process. Evidently, it would be really expensive that each time a new device is added to the system, the software has to be updated and modifications in the source code has to be done. A viable IoT solution cannot be designed like this. 
+\newline
+\newline
+This state of the start is organised as follows. The section \ref{context} is dedicated at putting in place the background of this state of the art. A generic overview of the Internet of Things architecture is explained roughly to underline the computation parts. The section \ref{cep} explains the basics of the Complex Event Processing in general. In parallel, examples coming from the internet of things is highlighting the concepts. The section \ref{computing-levels} is focusing on the computing layers in the Internet of Things. This aforementioned section shows the advantages and inconvenience of putting the processing part at the edge, fog or cloud layer. The section \ref{pub-sub} explains the publish-subscribe architecture based on the article \cite{A-Semantic-Publish-Subscribe-Architecture}. The section \ref{domain-applications} is regrouping different domain of applications where the Internet of Things is present. Based on the literature, the section is showing different IoT architectures where the Complex Event Processing is used for different use-cases and at which level this computing technology is useful. The state of the art is ending by a conclusion in the section \ref{conclusions} and by the problematisation part on the section \ref{problematic}. At the very end of this article, a section dedicated to the Research methodology is available in the section \ref{research-methodology}.
 
-
-\textcolor{red}{Parler des CPS, Fraud Detection, Health, Fault Tolerance, structure de l'état de l'art, etc}
 \newpage
 
-\section{Context}
+\section{Context} \label{context}
 
 \subsection{Internet of Things}
 
@@ -94,7 +89,7 @@ A thing can be any connected device from our daily life that is able to capture 
 The architecture of an Internet of Things solution can be implemented with various technologies and in very different infrastructures. However, a generic high level architecture is common to all IoT projects:
 \begin{figure}[H]
 	\includegraphics[width=\textwidth,height=200pt]{assets/Abstract_IoT_Architecture.png} 
-	\caption{Generic Architecture}
+	\caption[Generic Architecture]{Generic Architecture. (Source: \cite{Future-Internet-The-Internet-of-Things})}
 	\label{fig:genericArchitecture}
 \end{figure}
 
@@ -112,7 +107,7 @@ The previous architecture can be simplified to highlight the layer of architectu
 \newline
 \begin{figure}[h]
 	\includegraphics[width=\textwidth,height=180pt]{assets/Basic_IOT_Architecture.png} 
-	\caption{Simple IoT Architecture}
+	\caption[Simple IoT Architecture]{Simple IoT Architecture. (Source: \cite{Future-Internet-The-Internet-of-Things})}
 	\label{fig:simpleArchitecture}
 \end{figure}
 
@@ -122,7 +117,7 @@ This state of the art is focusing on the "Computation and Processing System" lay
 %	Complex Event Processing
 %----------------------------------------------------------------------------------------
 
-\section{Complex Event Processing}
+\section{Complex Event Processing} \label{cep}
 
 \subsection{Definition}
 
@@ -141,7 +136,7 @@ The CEP engine is consuming the events sent by the physical objects on the Commu
 \newline
 \begin{figure}[h]
 	\includegraphics[width=\textwidth,height=160pt]{assets/cep-pattern-decision-reaction.png} 
-	\caption{CEP Pattern Decision Reaction}
+	\caption[CEP Pattern Decision Reaction]{CEP Pattern Decision Reaction. (Source: https://www.tibco.com/blog/2009/12/18/cep-more-than-event-patterns)}
 	\label{fig:cep-pattern-decision-reaction}
 \end{figure}
 
@@ -186,24 +181,26 @@ A plenty of primitive operators exists in Event Pattern Languages to describe th
 
 \subsection{Event-Condition-Action Pattern}
 
-As seen in section \ref{cep-engine}, the CEP Engine is composed of events to detect, a set of rules to execute and actions to perform. Basically, this CEP approach is called Event-Condition-Action and separate the operations in three stages : Event processing, Condition evaluation and Action execution. This pattern is often used in the most popular CEP Frameworks (e.g.Apache Flink, Esper, Google Dataflow and Apache Heron). The Event processing stage is itself divided into three parts : Event detection, Event subscription and Event processing. The aforementioned stage is responsible to detect events, subscribe and process events. The condition stage is the step where rules are defined by Event Pattern Languages. The Rule Engine is composed of a fact base and rule base. The fact base represents the current state of all facts defined in the system. A fact is a situation that can occur in the system. For example, if a detection event is sent by a sensor in a bedroom, the fact can be "Someone is in the Bob's bedroom". Rules consist of an ECA based pattern: on {<}event{>} if {<}condition{>} then {<}action{>}. Whenever an event occurs, the rule scanner checks all relevant rules to determine any consequent actions that need to be initiated. \cite{IoT Architecture based on services and Events}
+As seen in section \ref{cep-engine}, the CEP Engine is composed of events to detect, a set of rules to execute and actions to perform. Basically, this CEP approach is called Event-Condition-Action and separate the operations in three stages : Event processing, Condition evaluation and Action execution. This pattern is often used in the most popular CEP Frameworks (e.g.Apache Flink, Esper, Google Dataflow and Apache Heron). The Event processing stage is itself divided into three parts : Event detection, Event subscription and Event processing. The aforementioned stage is responsible to detect events, subscribe and process events. The condition stage is the step where rules are defined by Event Pattern Languages. The Rule Engine is composed of a fact base and rule base. The fact base represents the current state of all facts defined in the system. A fact is a situation that can occur in the system. For example, if a detection event is sent by a sensor in a bedroom, the fact can be "Someone is in the Bob's bedroom". Rules consist of an ECA based pattern: on {<}event{>} if {<}condition{>} then {<}action{>}. Whenever an event occurs, the rule scanner checks all relevant rules to determine any consequent actions that need to be initiated. \cite{An-internet-of-things-system-architecture}
 
 \begin{figure}[h]
 	\includegraphics[width=\textwidth,height=90pt]{assets/ECA_illustration.png}
-	\caption{Event-Condition-Action}
+	\caption[Event-Condition-Action]{
+	Event-Condition-Action. (Source: \cite{An-internet-of-things-system-architecture})
+	}
 	\label{fig:Event-Condition-Action}
 \end{figure}
 
 \subsection{Database and Data Stream Management Systems}
 
-Real-time applications are consuming the data in a different way comparing to a traditional system. A traditional information system using a Database Management Systems (DBMS), the information stored in the database related to an specific entity is a "static" data persisted. The information stored in an aggregation of the reality. Only the current state of the information is relevant for the system. This type of Data management doesn't fit all real-time applications' needs. A real-time application needs to correlate each events coming into the system. An IoT solution is sending too much data into the system. It's not possible for a traditional database to store, query and respond in a timely manner. 
+Real-time applications are consuming the data in a different way comparing to a traditional system. A traditional information system using a Database Management Systems (DBMS), the information stored in the database related to an specific entity is a "static" data persisted. The information stored in an aggregation of the reality. Only the current state of the information is relevant for the system. This type of Data management doesn't fit all real-time applications' needs. A real-time application needs to correlate each events coming into the system. An IoT solution is sending too much data into the system. It's not possible for a traditional database to store, query and respond in a timely manner. \cite{Complex-event-processing-for-the-Internet-of-Things}
 \newline
 \newline
 The Data Stream Management Systems (DSMS) are designed to handle potentially infinite and fast changing event streams. Obviously, it is not possible to query the all history of events that came from the beginning of the solution and respond in milliseconds. Different approaches exist to limit the amount of data processed. Roughly, compression techniques exists to summarize a set of data already queried. Another technique consists of setting a time window to pick a portion of data in the time. 
 
 %--------------------------------------------------------------------------------------
 
-\section{Computing Levels}
+\section{Computing Levels} \label{computing-levels}
 
 The main preoccupations of a real-time solution in IoT is to have the lowest latency between all devices. To process all data coming from sensors, CEP engines can help reducing the processing time. The CEP engines can be placed at different level of the IoT architecture. The place where Complex Event Processing is used depends of the business needs. 
 
@@ -215,7 +212,8 @@ The Cloud Computing places the computing complexity at the cloud level. All the 
 \newline
 \begin{figure}[h]
 	\includegraphics[width=\textwidth,height=160pt]{assets/Cloud_Computing.png}
-	\caption{Cloud Computing}
+	\caption[Cloud Computing]{
+	Cloud Computing. (Source: https://mapr.com/blog/cool-fitness-tracker-using-iot-sensors-cloud-ml-on-mapr)}
 	\label{fig:Cloud-Computing}
 \end{figure}
 
@@ -228,15 +226,17 @@ Of course the Cloud Computing can be coupled with other levels of computing and 
 
 \subsection{Fog Computing}
 
-The Fog Computing places the computing intelligence at the local network level. Typically the complexity is put between the Cloud and the IoT sensors. The devices are sending their data to a Middleware and the CEP engine is processing the data locally and send the processed events to a service running in the Cloud or on a local server. This method offers the CEP performances on a closer level where the data are created. Then the applications where latency is crucial, the Fog Computing can fit with their business needs. For example, the auto mobile or aerospace sector are more and more connected and the reactivity of their system needs to be as fast as possible. Compared to a device-to-cloud architecture, placing processing closer to the devices can reduce the latency since the physical distance is shorter and potential response time in a data center can be removed. Compared to a deviceonly architecture, latency can be reduced since computationintensive tasks that take a long time on resource-constrained sensor devices can be moved to more capable fog computing nodes. The motivation can also be to keep the latency predictable.\cite{7248934}
+The Fog Computing places the computing intelligence at the local network level. Typically the complexity is put between the Cloud and the IoT sensors. The devices are sending their data to a Middleware and the CEP engine is processing the data locally and send the processed events to a service running in the Cloud or on a local server. This method offers the CEP performances on a closer level where the data are created. Then the applications where latency is crucial, the Fog Computing can fit with their business needs. For example, the auto mobile or aerospace sector are more and more connected and the reactivity of their system needs to be as fast as possible. Compared to a device-to-cloud architecture, placing processing closer to the devices can reduce the latency since the physical distance is shorter and potential response time in a data center can be removed. Compared to a deviceonly architecture, latency can be reduced since computationintensive tasks that take a long time on resource-constrained sensor devices can be moved to more capable fog computing nodes. The motivation can also be to keep the latency predictable.\cite{Towards-power-consumption-delay}
 
 \begin{figure}[H]
 	\includegraphics[width=\textwidth,height=160pt]{assets/Fog_Computing.jpg}
-	\caption{Fog Computing}
+	\caption[Fog Computing]{
+		Fog Computing. (Source: https://www.manuauto.com/category/moxa/page/4)
+	}
 	\label{fig:Fog-Computing}
 \end{figure}
 
-It can happen that the edge devices are sending too much data at very high rate. Therefore the processing engine at fog level is not treating the data fast enough because the processing of a huge amount of data is taking too much time. The Complex Event Processing can be put at the Edge devices level. The terms Fog and Edge computing have different meanings depending on the article. In some article, edge computing refers to the enabling technologies allowing computation to be performed at the edge of the network,on downstream data on behalf of cloud services and upstream data on behalf of IoT services.\cite{Edge Computing - Vision and Challenges} The limit between Fog and Edge computing is not clear. In this state-of-the-art we consider the Fog to be a higher layer on the top of physical devices like a server on a private network. 
+It can happen that the edge devices are sending too much data at very high rate. Therefore the processing engine at fog level is not treating the data fast enough because the processing of a huge amount of data is taking too much time. The Complex Event Processing can be put at the Edge devices level. The terms Fog and Edge computing have different meanings depending on the article. In some article, edge computing refers to the enabling technologies allowing computation to be performed at the edge of the network,on downstream data on behalf of cloud services and upstream data on behalf of IoT services.\cite{Edge-Computing-Vision-and-Challenges} The limit between Fog and Edge computing is not clear. In this state-of-the-art we consider the Fog to be a higher layer on the top of physical devices like a server on a private network. 
 
 %----------------------------------------------------------------------------------------
 
@@ -246,13 +246,14 @@ The Edge Computing places the computing complexity at the Physical Layer. It can
 
 %----------------------------------------------------------------------------------------
 
-\section{Semantic Publish-Subscribe Architecture}
+\section{Publish-Subscribe Architecture} \label{pub-sub}
 
-The article "A Semantic Publish-Subscribe Architecture" \cite{A Semantic Publish-Subscribe Architecture} suggests an interesting asynchronous architecture based on the Publish-Subscribe design pattern. The publish-subscribe pattern in software architecture is a messaging pattern where the sender of the message doesn't know the receiver. On the other side, the receiver doesn't know the sender as well. The publisher is sending a message on a message queue where subscriber(s) are listening to. In Internet of Things solutions, the producers and consumers can be the connected objects themselves but it can also be an application layer in the Cloud for example. The connected objects are publishing events on event topics and the application layer processes those events.
+The article "A Semantic Publish-Subscribe Architecture" \cite{A-Semantic-Publish-Subscribe-Architecture} suggests an interesting asynchronous architecture based on the Publish-Subscribe design pattern. The publish-subscribe pattern in software architecture is a messaging pattern where the sender of the message doesn't know the receiver. On the other side, the receiver doesn't know the sender as well. The publisher is sending a message on a message queue where subscriber(s) are listening to. In Internet of Things solutions, the producers and consumers can be the connected objects themselves but it can also be an application layer in the Cloud for example. The connected objects are publishing events on event topics and the application layer processes those events.
 
 \begin{figure}[H]
 	\includegraphics[width=\textwidth,height=200pt]{assets/SPS_Architecture.png}
-	\caption{Semantic Publish Subscribe Architecture\cite{article_SPS}}
+	\caption[Semantic Publish Subscribe Architecture]{
+	Semantic Publish Subscribe Architecture. (Source: \cite{A-Semantic-Publish-Subscribe-Architecture})}
 	\label{fig:Semantic-Publish-Subscribe-Architecture}
 \end{figure}
 
@@ -263,7 +264,8 @@ The role of the producers is to collect the data from the sensors. The producer 
 Contrarily, the consumers are listening to the concrete events coming in the SUB Engine that can be a result of a processing done by an aggregator. After receiving an notification, the consumers extract the raw data and send it to a devices through a legacy interface.
 \begin{figure}[H]
 	\includegraphics[width=\textwidth,height=190pt]{assets/simple_SPS_example.png}
-	\caption{Sequence diagram of Smart Lightning\cite{article_SPS}}
+	\caption[Sequence diagram of Smart Lightning]{
+	Sequence diagram of Smart Lightning. (Source: \cite{A-Semantic-Publish-Subscribe-Architecture})}
 	\label{fig:Sequence-diagram-of-Smart-Lightning}
 \end{figure}
 The aggregators are listening to the events sent by the producer through the SUB Engine. Each aggregator subscribes to each event type they need for their business process. The fig.\ref{fig:Sequence-diagram-of-Smart-Lightning} exposes a simple use case of Smart Lightning where each type of clients described previously is used. The presence sensor acts as a producer and store the presence state in the RDF Store. The Lamp actuator acts as a consumer and subscribe to the Lamp events. The Smart Lightning acts as an aggregator to handle incoming events and triggers a business process based on those events.
@@ -283,47 +285,72 @@ The aggregators are listening to the events sent by the producer through the SUB
 10. The Smart Lightning Aggregator sends the "Switch off lamp" event.
 11. The Lamp actuator is switching off the light.
 
-%----------------------------------------------------------------------------------------
-%\section{Domain of applications}
-%	\subsection{Fault Tolerance}
-%----------------------------------------------------------------------------------------
+\section{Domain of applications} \label{domain-applications}
 
-\section{Problematic}
+\subsection{Fault Tolerance}
 
-\textcolor{red}{Prendre des exemples d'articles que j'ai analysé pour souligner des points}
+\section{Conclusions} \label{conclusions}
 
-\subsection{Scalability}
+\section{Problematisation} \label{problematic}
+
+Through this state-of-the-art, some problematic aspects in the Complex Event Processing for Internet of Things domain were found. In the literature, some important aspects for an IoT solution are rarely took in account. An Internet of Things solution is continuously growing and everything around the architecture has to be designed to scale and to ease all interactions. 
+
+\subsection{Aspects}
+
+\subsubsection{Scalability}
 
 One of the main challenge in IoT is the increasing of connected objects. More connected objects means that more data is sent periodically. Therefore the load of data to process increases. The Complex Event Processing is one of the answer to this problematic. The CEP will filter, aggregate, summarize the information and send it to an application layer. Then, if we have more connected objects, more complex events will be sent to this application layer. The use-case of a connected building or hospital is a great example. An initial installation can be done in a building but after a while, the connected objects increase. Thus, the application layer could be overflowed by the number of events and accordingly the processing time may take too much time. The e-health sector needs to have a fast, robust, fault tolerant and scalable infrastructure. The scalability of an IoT architecture is really important because an IoT solution is growing at the same time as the physical world. Then, the virtual world designed in an Internet of Things solution should be adapted easily with the today world and the world of tomorrow. 
 \newline
 \newline
 All the infrastructure of an IoT solution should be flexible. The today containerization technologies offer the possibilities to do so. Kubernetes and Docker Swarm offers the possibility to manage such type of infrastructure. These technologies enable the ability to scale up vertically in term of service instance. Each instance of a containerized service can be replicated to share the load of the data to process for example. If at a moment t, a lot of data is coming to a specific service, this one can be scaled up automatically to load-balance the incoming requests. 
 
-\subsection{Reliability}
+\subsubsection{Reliability}
 
 The Internet of Things needs to scale horizontally in term of hardware resources. The aforementioned containerization technologies gives the ability to create clusters. Those clusters can be formed initially by 5 hosts for example. If the resources to process the data are not sufficient, it is possible to add more servers at runtime. On a traditional client-server architecture, the client is connecting to one and exactly one server. Nowadays, a big and complex architecture cannot rely on one unique physical (or virtual) machine. The clients (connected objects) need to have the possibility to connect on a cluster of machines containing the IoT Platform. Then, even if a host is shutting down, all the application is still running normally. There is no single point of failure.
 
-\subsection{Monitorability}
+\subsubsection{Monitorability}
 
-An Internet of Things solution can be really complex. The complexity of such system can be explained by the presence of a huge number of connected devices. At an upper layer, the business process consuming the events generated by the devices can be really hard because a lot of type of events can be implicated for one operation. Therefore, if an error occurs somewhere in this infrastructure it reveals to be really hard to find the defects. An accurate knowledge of all processes has to be known. Then, the IoT solutions need to have a very simple and well designed monitoring tools. Those monitoring tools need to cover different aspects. It needs to show relevant data for the end user if something wrong happened and why. A second level of monitoring has to be defined for more qualified people. Such as the error logs, events and devices metrics.
+An Internet of Things solution can be really complex. The complexity of such system can be explained by the presence of a huge number of connected devices. At an upper layer, the business process consuming the events generated by the devices can be really hard because a lot of type of events can be implicated for one operation. Therefore, if an error occurs somewhere in this infrastructure it reveals to be really hard to find the defects. An accurate knowledge of all processes has to be known. Then, the IoT solutions need to have a very simple and well designed monitoring tools. Those monitoring tools need to cover different aspects. It has to show relevant data for the end user if something wrong happened. 
 
-\subsection{Extensibility}
+\subsubsection{Extensibility}
 
-\subsection{Device independence}
+An IoT solution is growing in term of connected objects and in term of functionalities. A big challenge is to reduce as much as possible the line of codes to write when a new business feature is required. IoT Platforms like MainFlux \cite{Unified-IoT-Platform-Architecture} or ThingsBoard proposes rules engine based on Complex Event Processing. It is possible to define declaratively on a UI interface, rules based on the events and trigger configurable actions. \cite{Performance-Evaluation-Of-Open-Source-IoT-Platforms} The integration with third party applications for an IoT solution is really important. The world is continuously evolving and the interoperability with other products is crucial. 
+\newline
+\newline
+Another important point of such architecture is the ease to integrate new services. A new service is an application communicating with the IoT platform and that can perform simple or complex actions. For the developers, an SDK facilitating the communication between the IoT Platform and the services is an incredible gain of time and ease the development. An SDK contributes to the ease of extensibility of an IoT platform. 
 
-\textcolor{red}{Les devices doivent être agnostique l'un de l'autre (car doit être interchangeable), pas de communication one-to-one (ou alors via gateway), privilégier pub-sub, se baser sur des techno Open-Source}
+\subsubsection{Independence between Things}
 
+The Internet of Things is continuously evolving. Therefore, connected objects cannot rely "directly" on another object. Certainly, another device can communicate directly with another but this one should be able to be modified easily. The communication between objects should be totally configurable. All connected objects are sharing a common platform and are sharing their data through this platform. The usage of such platform provides the independence between connected objects. A publish-subscribe and micro-service architecture can be implemented to provide the same philosophy at the application Layer. The micro-services share the same queuing technology but the consumers and the producers don't know each other. Then, a fully asynchronous and service independence can be imagined.
 
-\subsection{ }
-\textcolor{red}{Parler de l'idée envoyée par mail mais de manière structurée + comment quantifier + questions et sous questions}
+\subsection{Question}
+
+\subsubsection{General Question}
+
+Which Internet of Things architecture is adapted for an evolving solution where the connected objects are growing day by day ? Which technologies can respond to the previously boarded criterias and how to implement those concepts for a real world use-case ? 
+
+\subsubsection{Sub-Question}
+
+How to quantify objectively the criterias of scalability, reliability, monitorability, extensibility of an IoT solution ? All those points need to reflect the impact of the performances, resources, \ldots.
+
+\begin{itemize}
+	\item \textbf{Scalability:} The scalability can be split into two categories : the hardware scalability and the applications scalability. The hardware scalability can be quantified by the ability of the system to add or not a new machine to a cluster at runtime. It is possible to measure the ability of this new machine to share the processing load in term of usage of the CPU and the incoming requests. In the other hand, the application scalability can be quantified by the possibility or not to replicate a service if this one is overflowed. The load balancing between the service instances can be measured to quantify the effective gain of performances. A same system with one instance and a system with multiple can be measured in term of reactivity. 
+	
+	\item \textbf{Reliability:} The reliability is tightly coupled with the high availability of a system and the previous scalability point. An IoT solution should be fault tolerant and as much the hardware and the applications must me robust. This point can be quantified by the possibility of shutting down application servers, stopping services and inspect the impacts on the system. The system should be still running. In a degraded mode but all the solutions shouldn't stop brutally.
+
+	\item \textbf{Monitorability:} The monitorability of a system is difficult to quantify. All that can be quantified is the ability to see easily what's happening across the system. Is it simple for an end-user to see what is going on on the system ? Are the metric useful for the user ? Is it configurable ? Is it possible to create new dashboards ?
+
+	\item \textbf{Extensibility:} The extensibility of an Internet of Things solution can be measured by the presence or not of an SDK for the IoT platform used. Is it possible to integrate with third parties ? Is it possible to configure it easily for the end user and is it possible to modulate processes via User Interfaces ? 
+	
+\end{itemize}
+
+\newpage
 
 %----------------------------------------------------------------------------------------
 
-\section{Research Methodology}
+\section{Research Methodology} \label{research-methodology}
 
 %----------------------------------------------------------------------------------------
-
-\section{Conclusions}
 
 %----------------------------------------------------------------------------------------
 %----------------------------------------THE END-----------------------------------------
