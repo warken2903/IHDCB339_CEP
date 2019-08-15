@@ -56,6 +56,12 @@
 	\vfill
 \end{titlepage}
 
+
+%----------------------------------------------------------------------------------------
+%	Index
+%----------------------------------------------------------------------------------------
+\tableofcontents
+\newpage
 %----------------------------------------------------------------------------------------
 %	Beginning
 %----------------------------------------------------------------------------------------
@@ -246,9 +252,15 @@ Edge Computing places the computing complexity at the Physical Layer. It can be 
 
 %----------------------------------------------------------------------------------------
 
-\section{Publish-Subscribe Architecture} \label{pub-sub}
+\section{Semantic Publish-Subscribe Architecture} \label{pub-sub}
+
+\subsection{Definition}
 
 The article "A Semantic Publish-Subscribe Architecture" \cite{A-Semantic-Publish-Subscribe-Architecture} suggests an interesting asynchronous architecture based on the Publish-Subscribe design pattern. The publish-subscribe pattern in software architecture is a messaging pattern where the sender of the message does not know the receiver. On the other side, the receiver does not know the sender as well. The publisher is sending a message on a message queue where subscriber(s) are listening to. In Internet of Things solutions, the producers and consumers can be the connected objects themselves but can also be an application layer in the Cloud for example. The connected objects are publishing events on event topics and the application layer processes those events.
+
+\subsection{Overview}
+
+The SPS architecture prone the modularity, extensibility and cost-effective vision. It splits the physical world from its digital representation. The primary characteristic consists of splitting clients into 3 categories: consumers, producers and aggregators. The business logic is driven by the aggregators. The producers and the consumers are the bridge between the physical world and the virtual representation of the systems. This principle keeps the business logic at the aggregator level in order to keep the clients and producers as simple as possible. It gives to the producers the unique responsibility to send data to an upper layer without executing any business logic. Hence, this system is easier to extend because only the aggregator layer is impacted if a business feature is added. Then, the consumers and producers can be shared by different applications.
 
 \begin{figure}[H]
 	\includegraphics[width=\textwidth,height=200pt]{assets/SPS_Architecture.png}
@@ -257,9 +269,6 @@ The article "A Semantic Publish-Subscribe Architecture" \cite{A-Semantic-Publish
 	\label{fig:Semantic-Publish-Subscribe-Architecture}
 \end{figure}
 
-The SPS architecture prone the modularity, extensibility and cost-effective vision. It splits the physical world from its digital representation. The primary characteristic consists of splitting clients into 3 categories: consumers, producers and aggregators. The business logic is driven by the aggregators. The producers and the consumers are the bridge between the physical world and the virtual representation of the systems. This principle keeps the business logic at the aggregator level in order to keep the clients and producers as simple as possible. It gives to the producers the unique responsibility to send data to an upper layer without executing any business logic. Hence, this system is easier to extend because only the aggregator layer is impacted if a business feature is added. Then, the consumers and producers can be shared by different applications.
-\newline
-\newline
 The role of the producers is to collect the data from the sensors. The producer can optionally make a local processing where it encapsulate the data to a semantic format. After that, the producer send the information to the SUB Engine that will store the data in a Triplestore.
 Contrarily, the consumers are listening to the concrete events coming in the SUB Engine that can be a result of a processing done by an aggregator. After receiving an notification, the consumers extract the raw data and send it to a devices through a legacy interface.
 \begin{figure}[H]
@@ -287,14 +296,22 @@ The aggregators are listening to the events sent by the producer through the SUB
 
 \section{Domain of applications} \label{domain-applications}
 
-\subsection{Energy Efficient Building}
+\subsection{Smart Building}
 
 The article \cite{Towards-a-context-driven-platform} proposes an Internet of Things architecture to reduce building's energy consumption. Studies demonstrated that using ICT technologies could reduce the energy consumption of a building by 70 percent. Different automatic processes have been put in place to control the ventilation, heating and air conditioning control based on data coming from the sensors. Different algorithms were tested to provide a better way to maintain the heating and air quality of the building with the lowest energy consumption.
+\newline
+\newline
+The article \cite{Complex-event-processing-for-the-Internet-of-Things} is focusing on a distributed Complex Event Processing Architecture. The work is based on a smart Building use-case. The paper highlights the fact that it is not appropriate to use a centralized architecture for an Iot environment. Having a centralised server means having devices sending an enormous quantity of raw data to one unique server. Hence, the server must have enough powerful hardware resources. The ability to scale such systems efficiently is not possible. The paper proposes to distribute the processing load between multiple servers. Some event processing is performed upstream in order to filter only the payload data to other servers that have another processing responsibility. The proposed solution allows users to define the rules and actions to be executed from a graphical user interface.
 
-\subsection{Smart Home}
-
+\begin{figure}[H]
+	\includegraphics[width=\textwidth,height=190pt]{assets/Distributed-Complex-Event-Processing.PNG}
+	\caption[Distributed Complex Event Processing]{
+	Distributed Complex Event Processing. (Source: \cite{Complex-event-processing-for-the-Internet-of-Things})}
+\end{figure}
 
 \subsection{Fault Tolerance}
+
+\subsection{E-Health}
 
 \section{Problematisation} \label{problematic}
 
@@ -370,15 +387,27 @@ The second step consisted of reading all the 100 abstracts of the articles. Then
 The second search on IEEE Xplore consisted of searching other Data processing techniques in the domain of Internet of Things. The query was : ((((Internet of Things) AND Data Processing) NOT Complex Event Processing)). With the filters :  2014 to 2019 and the 100 most cited papers. For this search, the same methodology was applied.
 \newline
 \newline
-After all this research, the writing of this state-of-the-art started. Sometimes, some informations were missing to correlate some parts with others or some concepts weren't explained clearly. Then, some small additional researches were done during the writing. Those research were either a search in a scientific library or from a reference in an analyzed article.
+After all this research, the writing of this state-of-the-art started. Sometimes, some informations were missing to correlate some parts with others or some concepts weren't explained clearly. Then, some small additional researches were done during the writing. Those research were either a search in a scientific library or from a reference in an analysed article.
+
+\newpage
+
+%---------------------------------------List of Figures----------------------------------------
+
+\section*{List of Figures}
+\makeatletter
+\@starttoc{lof}% Print List of Figures
+\makeatother
+\addcontentsline{toc}{section}{\protect\numberline{}List of Figures}%
+
+%---------------------------------------References----------------------------------------
+
+\nocite{*}
+\section*{References}
+\printbibliography[heading=none]
+\addcontentsline{toc}{section}{\protect\numberline{}References}%
 
 %----------------------------------------------------------------------------------------
 %----------------------------------------THE END-----------------------------------------
 %----------------------------------------------------------------------------------------
-
-\newpage
-\listoffigures
-\nocite{*}
-\printbibliography
 
 \end{document}
