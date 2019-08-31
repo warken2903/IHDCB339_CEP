@@ -37,7 +37,7 @@
 	\begin{minipage}{0.4\textwidth}
 		\begin{flushright}
 			\large
-			\textit{Supervisors}\\
+			\textit{Promoters}\\
 			Moussa \textsc{Amrani}
 			\\
 			Pierre-Yves \textsc{Schobbens} 
@@ -52,18 +52,25 @@
 	%	Logo
 	%------------------------------------------------
 	\vfill\vfill
-	\includegraphics[width=0.2\textwidth]{placeholder.png}\\[1cm]
+	\includegraphics[width=0.2\textwidth]{assets/placeholder.png}\\[1cm]
 	\vfill
 \end{titlepage}
 
-
 %----------------------------------------------------------------------------------------
-%	Index
+%	Acknowledgments 
+%----------------------------------------------------------------------------------------
+
+\begin{acknowledgements}
+I would like to thank in particular my promoters Mr. Amrani and Mr. Schobbens for their support in writing this state of the art. They were able to answer my questions and get me back on track when I was lost. The meetings I had with Mr. Amrani allowed me to better understand the subject and find out how to approach it. Mr. Schobbens' theoretical course allowed me to understand the issues and the process to be followed during scientific research. I would also like to thank all those who were able to help in any way with the development of this article. 
+\end{acknowledgements}
+\newpage
+%----------------------------------------------------------------------------------------
+%	Content
 %----------------------------------------------------------------------------------------
 \tableofcontents
 \newpage
 %----------------------------------------------------------------------------------------
-%	Beginning
+%	Introduction
 %----------------------------------------------------------------------------------------
 
 \section{Introduction}
@@ -309,9 +316,18 @@ The article \cite{Complex-event-processing-for-the-Internet-of-Things} is focusi
 	Distributed Complex Event Processing. (Source: \cite{Complex-event-processing-for-the-Internet-of-Things})}
 \end{figure}
 
-\subsection{Fault Tolerance}
+\subsection{Healthcare}
 
-\subsection{E-Health}
+Healthcare is a sector where the investment for the Internet of Things is significant. More and more hospitals are offering connected devices to monitor the health status of their patients. Besides, the article \cite{healthcare-fog-computing} presents the promises of Fog and Edge Computing in the field of health. Fog Computing brings the possibility to handle dynamic contexts. Medical devices main responsibility is to collect data from patients. Therefore, all data processing inside devices should be minimal to provide the minimum usage of the battery. Fog computing provides flexibility in data processing. If an update needs to be made to the data processing level, the only impact is located on the Fog Level.
+\newline
+\begin{figure}[H]
+	\includegraphics[width=\textwidth,height=190pt]{assets/healthcare-fog-computing.PNG}
+	\caption[Healthcare Fog-Computing]{
+	Healthcare Fog-Computing. (Source: \cite{healthcare-fog-computing})}
+	\label{fig:healthcare-fog-computing}
+\end{figure}
+
+Information from sensors inside the patient must be available in different places. The patient must be able to be notified directly at home if a potential problem is detected. Therefore, connected medical objects must be able to connect to different devices: smart phone, home, hospital, etc. (see: figure \ref{fig:healthcare-fog-computing}) 
 
 \section{Problematisation} \label{problematic}
 
