@@ -1,0 +1,3 @@
+internet of things           : https://internetofthingswiki.com/biggest-security-issues-iot-devices-face/1344/
+internet of things evolution : https://www.mesh-net.co.uk/what-is-the-internet-of-things-iot/
+edge-computing               : https://www.mckennaconsultants.com/are-you-thinking-about-iot/
