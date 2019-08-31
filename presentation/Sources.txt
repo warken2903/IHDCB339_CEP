@@ -1,3 +1,8 @@
 internet of things           : https://internetofthingswiki.com/biggest-security-issues-iot-devices-face/1344/
 internet of things evolution : https://www.mesh-net.co.uk/what-is-the-internet-of-things-iot/
 edge-computing               : https://www.mckennaconsultants.com/are-you-thinking-about-iot/
+hardware-scalability         : https://www.enterpriseai.news/2017/07/28/hardware-strategies-horizontal-vertical-scalability-matters/
+software-scalability         : https://www.nginx.com/blog/docker-swarm-load-balancing-nginx-plus/
+reliability                  : https://kinsta.com/fr/blog/erreur-500-internal-server/
+monitorability               : https://www.pcwdld.com/best-network-monitoring-tools-and-software
+extensibility                : http://www.futureanalytics.ie/modular-design-in-software-development/
